@@ -750,28 +750,28 @@
 
         <div class="p-3 bg-zinc-900/90 border-b border-zinc-800 flex flex-wrap items-center gap-2 text-xs">
           <span class="text-zinc-500 font-mono text-[11px]">Click chips:</span>
-          <button class="term-chip px-2.5 py-1 rounded bg-zinc-800 hover:bg-zinc-700 text-orange-400 font-mono transition" data-cmd="help">help</button>
-          <button class="term-chip px-2.5 py-1 rounded bg-zinc-800 hover:bg-zinc-700 text-orange-400 font-mono transition" data-cmd="skills">skills</button>
-          <button class="term-chip px-2.5 py-1 rounded bg-zinc-800 hover:bg-zinc-700 text-orange-400 font-mono transition" data-cmd="projects">projects</button>
-          <button class="term-chip px-2.5 py-1 rounded bg-zinc-800 hover:bg-zinc-700 text-orange-400 font-mono transition" data-cmd="experience">experience</button>
-          <button class="term-chip px-2.5 py-1 rounded bg-zinc-800 hover:bg-zinc-700 text-orange-400 font-mono transition" data-cmd="certs">certs</button>
-          <button class="term-chip px-2.5 py-1 rounded bg-zinc-800 hover:bg-zinc-700 text-orange-400 font-mono transition" data-cmd="contact">contact</button>
-          <button class="term-chip px-2.5 py-1 rounded bg-orange-600/30 hover:bg-orange-600/50 border border-orange-500 text-orange-400 font-mono font-bold transition" data-cmd="sudo hire">sudo hire ⚡</button>
-          <button class="term-chip px-2.5 py-1 rounded bg-zinc-800 hover:bg-zinc-700 text-zinc-400 font-mono transition" data-cmd="clear">clear</button>
+          <button type="button" onclick="window.runTerminalCommand('help')" class="term-chip px-2.5 py-1 rounded bg-zinc-800 hover:bg-zinc-700 text-orange-400 font-mono transition" data-cmd="help">help</button>
+          <button type="button" onclick="window.runTerminalCommand('skills')" class="term-chip px-2.5 py-1 rounded bg-zinc-800 hover:bg-zinc-700 text-orange-400 font-mono transition" data-cmd="skills">skills</button>
+          <button type="button" onclick="window.runTerminalCommand('projects')" class="term-chip px-2.5 py-1 rounded bg-zinc-800 hover:bg-zinc-700 text-orange-400 font-mono transition" data-cmd="projects">projects</button>
+          <button type="button" onclick="window.runTerminalCommand('experience')" class="term-chip px-2.5 py-1 rounded bg-zinc-800 hover:bg-zinc-700 text-orange-400 font-mono transition" data-cmd="experience">experience</button>
+          <button type="button" onclick="window.runTerminalCommand('certs')" class="term-chip px-2.5 py-1 rounded bg-zinc-800 hover:bg-zinc-700 text-orange-400 font-mono transition" data-cmd="certs">certs</button>
+          <button type="button" onclick="window.runTerminalCommand('contact')" class="term-chip px-2.5 py-1 rounded bg-zinc-800 hover:bg-zinc-700 text-orange-400 font-mono transition" data-cmd="contact">contact</button>
+          <button type="button" onclick="window.runTerminalCommand('sudo hire')" class="term-chip px-2.5 py-1 rounded bg-orange-600/30 hover:bg-orange-600/50 border border-orange-500 text-orange-400 font-mono font-bold transition" data-cmd="sudo hire">sudo hire ⚡</button>
+          <button type="button" onclick="window.runTerminalCommand('clear')" class="term-chip px-2.5 py-1 rounded bg-zinc-800 hover:bg-zinc-700 text-zinc-400 font-mono transition" data-cmd="clear">clear</button>
         </div>
 
         <div id="terminalOutput" class="terminal-body space-y-2">
           <div class="text-zinc-400 text-xs leading-relaxed">
             Welcome to <span class="text-orange-500 font-bold">Lakshmi Chandrakala's</span> developer console.<br />
-            Type <span class="text-orange-400 font-bold">'help'</span> or click any chip above.
+            Type <span class="text-orange-400 font-bold underline cursor-pointer" onclick="window.runTerminalCommand('help')">'help'</span> or click any chip above.
           </div>
         </div>
 
-        <div class="p-3 bg-zinc-950 border-t border-zinc-800 flex items-center gap-2">
+        <form id="terminalForm" class="p-3 bg-zinc-950 border-t border-zinc-800 flex items-center gap-2">
           <span class="terminal-prompt text-sm font-bold">visitor@lakshmi:~$</span>
-          <input type="text" id="terminalInput" class="terminal-input" placeholder="Type command here..." autocomplete="off" spellcheck="false" />
-          <button onclick="window.runTerminalCommand(document.getElementById('terminalInput').value)" class="btn-orange text-xs py-1.5 px-3">Run</button>
-        </div>
+          <input type="text" id="terminalInput" class="terminal-input" placeholder="Type command here (or click Run)..." autocomplete="off" spellcheck="false" />
+          <button type="submit" class="btn-orange text-xs py-1.5 px-3">Run</button>
+        </form>
 
       </div>
 

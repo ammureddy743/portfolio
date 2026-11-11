@@ -679,23 +679,34 @@ body {
   text-decoration: line-through;
 }
 
-/* Terminal Styles */
-.terminal-window {
-  background: var(--terminal-bg);
-  border: 1px solid var(--border-color);
+/* ==========================================================================
+   TERMINAL WINDOW - BULLETPROOF HIGH CONTRAST IN ALL THEMES
+   Terminal is an authentic developer dark console. Ensure all terminal text,
+   prompts, outputs, and inputs remain crisp white, cyan, and vibrant orange
+   regardless of whether light mode or dark mode is active.
+   ========================================================================== */
+.terminal-window,
+[data-theme="light"] .terminal-window {
+  background: #0d0d10 !important;
+  border: 1px solid #27272a !important;
   border-radius: 1.25rem;
   overflow: hidden;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6) !important;
   font-family: var(--font-mono);
+  color: #f4f4f5 !important;
 }
-.terminal-header {
-  background: var(--terminal-header);
+
+.terminal-header,
+[data-theme="light"] .terminal-header {
+  background: #151518 !important;
   padding: 0.85rem 1.25rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 1px solid var(--border-color);
+  border-bottom: 1px solid #27272a !important;
+  color: #a1a1aa !important;
 }
+
 .terminal-dots {
   display: flex;
   gap: 0.4rem;
@@ -709,25 +720,130 @@ body {
 .dot-yellow { background: #f59e0b; }
 .dot-green { background: #10b981; }
 
-.terminal-body {
+/* Terminal Chip Bar & Action Buttons */
+.terminal-window .bg-zinc-900\/90,
+[data-theme="light"] .terminal-window .bg-zinc-900\/90 {
+  background-color: #121215 !important;
+  border-bottom: 1px solid #27272a !important;
+}
+
+.term-chip,
+[data-theme="light"] .term-chip {
+  background: #1c1c20 !important;
+  color: #ff8533 !important;
+  border: 1px solid #2e2e33 !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease;
+}
+.term-chip:hover,
+[data-theme="light"] .term-chip:hover {
+  background: #27272c !important;
+  color: #ffa05c !important;
+  border-color: #ff6b00 !important;
+}
+.term-chip[data-cmd="sudo hire"],
+[data-theme="light"] .term-chip[data-cmd="sudo hire"] {
+  background: rgba(255, 107, 0, 0.2) !important;
+  border-color: #ff6b00 !important;
+  color: #ff8533 !important;
+}
+
+/* Terminal Body & Dynamic Text Output */
+.terminal-body,
+[data-theme="light"] .terminal-body {
   padding: 1.25rem;
   font-size: 0.875rem;
   min-height: 260px;
   max-height: 380px;
   overflow-y: auto;
+  background: #0d0d10 !important;
+  color: #e4e4e7 !important;
 }
-.terminal-prompt {
-  color: var(--accent-orange);
+
+.terminal-window .text-white,
+[data-theme="light"] .terminal-window .text-white {
+  color: #ffffff !important;
+}
+.terminal-window .text-slate-100,
+.terminal-window .text-slate-200,
+.terminal-window .text-slate-300,
+[data-theme="light"] .terminal-window .text-slate-100,
+[data-theme="light"] .terminal-window .text-slate-200,
+[data-theme="light"] .terminal-window .text-slate-300 {
+  color: #d4d4d8 !important;
+}
+.terminal-window .text-slate-400,
+.terminal-window .text-slate-500,
+.terminal-window .text-zinc-400,
+.terminal-window .text-zinc-500,
+[data-theme="light"] .terminal-window .text-slate-400,
+[data-theme="light"] .terminal-window .text-slate-500,
+[data-theme="light"] .terminal-window .text-zinc-400,
+[data-theme="light"] .terminal-window .text-zinc-500 {
+  color: #a1a1aa !important;
+}
+.terminal-window .text-cyan-400,
+[data-theme="light"] .terminal-window .text-cyan-400 {
+  color: #38bdf8 !important;
+}
+.terminal-window .text-indigo-300,
+.terminal-window .text-indigo-400,
+[data-theme="light"] .terminal-window .text-indigo-300,
+[data-theme="light"] .terminal-window .text-indigo-400 {
+  color: #818cf8 !important;
+}
+.terminal-window .text-emerald-300,
+.terminal-window .text-emerald-400,
+[data-theme="light"] .terminal-window .text-emerald-300,
+[data-theme="light"] .terminal-window .text-emerald-400 {
+  color: #34d399 !important;
+}
+.terminal-window .text-purple-400,
+[data-theme="light"] .terminal-window .text-purple-400 {
+  color: #c084fc !important;
+}
+.terminal-window .text-rose-400,
+[data-theme="light"] .terminal-window .text-rose-400 {
+  color: #fb7185 !important;
+}
+.terminal-window .text-orange-400,
+.terminal-window .text-orange-500,
+[data-theme="light"] .terminal-window .text-orange-400,
+[data-theme="light"] .terminal-window .text-orange-500 {
+  color: #ff6b00 !important;
+}
+
+/* Prompt and Input Bar */
+.terminal-window .bg-zinc-950,
+[data-theme="light"] .terminal-window .bg-zinc-950,
+#terminalForm,
+[data-theme="light"] #terminalForm {
+  background-color: #121215 !important;
+  border-top: 1px solid #27272a !important;
+}
+
+.terminal-prompt,
+[data-theme="light"] .terminal-prompt {
+  color: #ff6b00 !important;
   margin-right: 0.5rem;
 }
-.terminal-input {
-  background: transparent;
-  border: none;
-  outline: none;
-  color: #ffffff;
-  font-family: var(--font-mono);
-  font-size: 0.875rem;
+
+.terminal-input,
+[data-theme="light"] .terminal-input,
+[data-theme="light"] input.terminal-input {
+  background: transparent !important;
+  background-color: transparent !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  color: #ffffff !important;
+  font-family: var(--font-mono) !important;
+  font-size: 0.875rem !important;
   flex: 1;
+}
+.terminal-input::placeholder,
+[data-theme="light"] .terminal-input::placeholder {
+  color: #71717a !important;
 }
 
 /* Interactive Sandbox Tabs */

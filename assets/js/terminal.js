@@ -5,12 +5,8 @@
  */
 
 (function () {
-  const terminalOutput = document.getElementById('terminalOutput');
-  const terminalInput = document.getElementById('terminalInput');
-  const chipButtons = document.querySelectorAll('.term-chip');
-
-  if (!terminalInput || !terminalOutput) return;
-
+  let terminalOutput = null;
+  let terminalInput = null;
   const commandHistory = [];
   let historyIndex = -1;
 
@@ -28,16 +24,16 @@
   <div><span class="text-cyan-400 font-bold">sudo hire</span>   - ✨ Direct recruit shortcut</div>
   <div><span class="text-cyan-400 font-bold">clear</span>       - Clear terminal screen</div>
 </div>
-<div class="text-xs text-slate-500 mt-2">Tip: You can click the chips above or type commands directly.</div>
+<div class="text-xs text-slate-400 mt-2">Tip: Click any chip above or type commands directly into the prompt.</div>
 `,
 
     about: () => `
 <div class="text-slate-200 leading-relaxed">
   <span class="text-indigo-400 font-bold">GURRALA LAKSHMI CHANDRAKALA REDDY</span><br/>
   Frontend & Mobile Application Developer based in Hyderabad, Telangana, India.<br/><br/>
-  • 7 months of professional production experience with <span class="text-emerald-400">The Team C</span>.<br/>
-  • Specialized in modern <span class="text-cyan-400">React.js</span> web ecosystems and cross-platform <span class="text-cyan-400">React Native</span> mobile interfaces.<br/>
-  • Certified System Administrator (<span class="text-purple-400">ServiceNow CSA</span>).<br/>
+  • 7 months of professional production experience with <span class="text-emerald-400 font-semibold">The Team C</span>.<br/>
+  • Specialized in modern <span class="text-cyan-400 font-semibold">React.js</span> web ecosystems and cross-platform <span class="text-cyan-400 font-semibold">React Native</span> mobile interfaces.<br/>
+  • Certified System Administrator (<span class="text-purple-400 font-semibold">ServiceNow CSA</span>).<br/>
   • Passionate about fluid UI/UX, reusable component architecture, and AI-accelerated workflows (Gemini, Claude, Antigravity).
 </div>
 `,
@@ -45,7 +41,7 @@
     skills: () => `
 <div class="space-y-2 text-slate-300">
   <div><span class="text-cyan-400 font-bold">Frontend:</span> React.js, JavaScript (ES6+), TypeScript, HTML5, CSS3, Tailwind CSS, Vite</div>
-  <div><span class="text-cyan-400 font-bold">Mobile:</span> React Native, Cross-Platform UI, Component Layouts</div>
+  <div><span class="text-cyan-400 font-bold">Mobile:</span> React Native, Cross-Platform UI, Mobile Gestures, Component Layouts</div>
   <div><span class="text-cyan-400 font-bold">Enterprise Platforms:</span> ServiceNow Certified System Administrator (CSA)</div>
   <div><span class="text-cyan-400 font-bold">Backend & DB:</span> Python, Flask, Django, SQLite, RESTful APIs</div>
   <div><span class="text-cyan-400 font-bold">AI & Dev Tools:</span> Claude AI, Google Gemini, Antigravity, Git, GitHub, VS Code</div>
@@ -64,7 +60,7 @@
   </div>
   <div>
     <span class="text-indigo-400 font-bold">3. FitTrack Health Platform</span> <span class="text-xs text-cyan-400">[Python, Flask, React.js]</span><br/>
-    Full-stack health and fitness tracking web application with workout logs and interactive UI.
+    Full-stack health and fitness tracking web application with workout logs, REST API endpoints, and interactive UI.
   </div>
   <div>
     <span class="text-indigo-400 font-bold">4. QTrans Translation Engine</span> <span class="text-xs text-cyan-400">[Python, Django, SQLite]</span><br/>
@@ -75,19 +71,19 @@
 
     experience: () => `
 <div class="space-y-2 text-slate-300">
-  <div class="text-emerald-400 font-bold">Frontend Developer — The Team C (7 Months)</div>
-  <p class="text-xs text-slate-400">• Contributed to frontend web & mobile app development for Team Connect.</p>
-  <p class="text-xs text-slate-400">• Built responsive UI layouts with React.js, Tailwind CSS, and React Native.</p>
-  <p class="text-xs text-slate-400">• Utilized AI coding tools for rapid prototyping and clean debugging.</p>
+  <div class="text-emerald-400 font-bold">Frontend Developer — The Team C (7 Months Active Production)</div>
+  <p class="text-xs text-slate-300">• Contributed to frontend web & mobile app development for Team Connect.</p>
+  <p class="text-xs text-slate-300">• Built responsive UI layouts with React.js, Tailwind CSS, and React Native.</p>
+  <p class="text-xs text-slate-300">• Utilized AI coding tools for rapid prototyping and clean debugging.</p>
   <div class="mt-2 text-indigo-400 font-bold">Education:</div>
-  <p class="text-xs text-slate-400">• B.Tech in CSE — Sree Vahini Institute of Science & Technology (2022–2026, CGPA: 7.59)</p>
-  <p class="text-xs text-slate-400">• Intermediate (MPC) — Sri Nidhi Junior College (63%)</p>
-  <p class="text-xs text-slate-400">• SSC — S.K.V High School (GPA: 9.2/10)</p>
+  <p class="text-xs text-slate-300">• B.Tech in CSE — Sree Vahini Institute of Science & Technology (2022–2026, CGPA: 7.59 / 10)</p>
+  <p class="text-xs text-slate-300">• Intermediate (MPC) — Sri Nidhi Junior College (63%)</p>
+  <p class="text-xs text-slate-300">• SSC — S.K.V High School (GPA: 9.2 / 10)</p>
 </div>
 `,
 
     certs: () => `
-<div class="space-y-1 text-slate-300">
+<div class="space-y-1.5 text-slate-300">
   <div>🏆 <span class="text-purple-400 font-bold">ServiceNow Certified System Administrator (CSA)</span></div>
   <div>🐍 <span class="text-emerald-400 font-bold">HackerRank Python Basic Certificate</span></div>
   <div>📊 <span class="text-cyan-400 font-bold">SQL Basics & Intermediate SQL Certificate</span></div>
@@ -95,12 +91,12 @@
 `,
 
     contact: () => `
-<div class="space-y-1 text-slate-300">
-  <div>📧 <span class="text-cyan-400">Email:</span> <a href="mailto:gurralaammureddy@gmail.com" class="text-indigo-300 hover:underline">gurralaammureddy@gmail.com</a></div>
-  <div>📱 <span class="text-cyan-400">Phone:</span> <a href="tel:+918919008619" class="text-indigo-300 hover:underline">+91 8919008619</a></div>
-  <div>📍 <span class="text-cyan-400">Location:</span> Hyderabad, Telangana, India</div>
-  <div>💼 <span class="text-cyan-400">LinkedIn:</span> <a href="https://linkedin.com/in/lakshmi-chandrakala-gurrala-710909255" target="_blank" class="text-indigo-300 hover:underline">linkedin.com/in/lakshmi-chandrakala-gurrala-710909255</a></div>
-  <div>🐙 <span class="text-cyan-400">GitHub:</span> <a href="https://github.com/ammureddy743" target="_blank" class="text-indigo-300 hover:underline">github.com/ammureddy743</a></div>
+<div class="space-y-1.5 text-slate-300">
+  <div>📧 <span class="text-cyan-400 font-semibold">Email:</span> <a href="mailto:gurralaammureddy@gmail.com" class="text-indigo-300 hover:underline">gurralaammureddy@gmail.com</a></div>
+  <div>📱 <span class="text-cyan-400 font-semibold">Phone / WhatsApp:</span> <a href="tel:+918919008619" class="text-indigo-300 hover:underline">+91 8919008619</a></div>
+  <div>📍 <span class="text-cyan-400 font-semibold">Location:</span> Hyderabad, Telangana, India</div>
+  <div>💼 <span class="text-cyan-400 font-semibold">LinkedIn:</span> <a href="https://linkedin.com/in/lakshmi-chandrakala-gurrala-710909255" target="_blank" class="text-indigo-300 hover:underline">linkedin.com/in/lakshmi-chandrakala-gurrala</a></div>
+  <div>🐙 <span class="text-cyan-400 font-semibold">GitHub:</span> <a href="https://github.com/ammureddy743" target="_blank" class="text-indigo-300 hover:underline">github.com/ammureddy743</a></div>
 </div>
 `,
 
@@ -131,43 +127,86 @@
     },
 
     clear: () => {
-      terminalOutput.innerHTML = '';
+      if (terminalOutput) {
+        terminalOutput.innerHTML = `
+          <div class="text-zinc-400 text-xs leading-relaxed">
+            Console cleared. Welcome to <span class="text-orange-500 font-bold">Lakshmi Chandrakala's</span> terminal.<br />
+            Type <span class="text-orange-400 font-bold cursor-pointer underline" onclick="window.runTerminalCommand('help')">'help'</span> or click any chip above.
+          </div>
+        `;
+      }
       return null;
     }
   };
 
-  function executeCommand(rawCmd) {
-    const trimmed = rawCmd.trim().toLowerCase();
-    if (!trimmed) return;
+  // Aliases for friendly UX
+  const aliases = {
+    cls: 'clear',
+    ls: 'help',
+    dir: 'help',
+    bio: 'about',
+    me: 'about',
+    skill: 'skills',
+    stack: 'skills',
+    project: 'projects',
+    work: 'projects',
+    portfolio: 'projects',
+    exp: 'experience',
+    job: 'experience',
+    cert: 'certs',
+    certifications: 'certs',
+    certification: 'certs',
+    servicenow: 'certs',
+    csa: 'certs',
+    email: 'contact',
+    phone: 'contact',
+    reach: 'contact',
+    hire: 'sudo hire',
+    cv: 'resume',
+    hi: 'about',
+    hello: 'about'
+  };
 
-    commandHistory.push(rawCmd);
+  function executeCommand(rawCmd) {
+    if (!terminalOutput) {
+      terminalOutput = document.getElementById('terminalOutput');
+    }
+    if (!terminalInput) {
+      terminalInput = document.getElementById('terminalInput');
+    }
+    if (!terminalOutput) return;
+
+    const trimmed = (rawCmd || 'help').toString().trim().toLowerCase();
+    const effectiveCmd = aliases[trimmed] || trimmed;
+
+    commandHistory.push(trimmed);
     historyIndex = commandHistory.length;
 
     // Append user command row
     const userRow = document.createElement('div');
     userRow.className = 'flex items-center text-slate-300 mb-1';
-    userRow.innerHTML = `<span class="terminal-prompt text-cyan-400">visitor@lakshmi:~$</span> <span class="font-semibold text-white">${escapeHtml(rawCmd)}</span>`;
+    userRow.innerHTML = `<span class="terminal-prompt text-cyan-400 mr-2 font-bold">visitor@lakshmi:~$</span> <span class="font-semibold text-white">${escapeHtml(trimmed)}</span>`;
     terminalOutput.appendChild(userRow);
 
     // Run command
     let outputHtml = '';
-    if (commands[trimmed]) {
-      const res = commands[trimmed]();
+    if (commands[effectiveCmd]) {
+      const res = commands[effectiveCmd]();
       if (res !== null) outputHtml = res;
     } else {
-      outputHtml = `<div class="text-rose-400">Command not recognized: '<span class="text-white">${escapeHtml(rawCmd)}</span>'. Type <span class="text-cyan-400 font-bold underline cursor-pointer" onclick="window.runTerminalCommand('help')">'help'</span> for a list of available commands.</div>`;
+      outputHtml = `<div class="text-rose-400 text-xs">Command not recognized: '<span class="text-white">${escapeHtml(trimmed)}</span>'. Type <span class="text-cyan-400 font-bold underline cursor-pointer" onclick="window.runTerminalCommand('help')">'help'</span> for available commands.</div>`;
     }
 
     if (outputHtml) {
       const outRow = document.createElement('div');
-      outRow.className = 'terminal-output';
+      outRow.className = 'terminal-output text-xs leading-relaxed my-1';
       outRow.innerHTML = outputHtml;
       terminalOutput.appendChild(outRow);
     }
 
     // Scroll to bottom
     terminalOutput.scrollTop = terminalOutput.scrollHeight;
-    terminalInput.value = '';
+    if (terminalInput) terminalInput.value = '';
 
     // Play feedback sound if sound is enabled
     if (window.playSfx) window.playSfx('keypress');
@@ -179,41 +218,66 @@
     });
   }
 
-  // Handle Input Enter & Arrows
-  terminalInput.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter') {
-      executeCommand(terminalInput.value);
-    } else if (e.key === 'ArrowUp') {
-      e.preventDefault();
-      if (historyIndex > 0) {
-        historyIndex--;
-        terminalInput.value = commandHistory[historyIndex] || '';
-      }
-    } else if (e.key === 'ArrowDown') {
-      e.preventDefault();
-      if (historyIndex < commandHistory.length - 1) {
-        historyIndex++;
-        terminalInput.value = commandHistory[historyIndex] || '';
-      } else {
-        historyIndex = commandHistory.length;
-        terminalInput.value = '';
-      }
+  function setupTerminal() {
+    terminalOutput = document.getElementById('terminalOutput');
+    terminalInput = document.getElementById('terminalInput');
+    const chipButtons = document.querySelectorAll('.term-chip');
+    const terminalForm = document.getElementById('terminalForm');
+
+    // Handle Form submission
+    if (terminalForm) {
+      terminalForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const val = terminalInput ? terminalInput.value : '';
+        executeCommand(val || 'help');
+      });
     }
-  });
 
-  // Chip buttons
-  chipButtons.forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const cmd = btn.getAttribute('data-cmd');
-      if (cmd) {
-        executeCommand(cmd);
-      }
+    // Handle Input Enter & Arrows
+    if (terminalInput) {
+      terminalInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          executeCommand(terminalInput.value || 'help');
+        } else if (e.key === 'ArrowUp') {
+          e.preventDefault();
+          if (historyIndex > 0) {
+            historyIndex--;
+            terminalInput.value = commandHistory[historyIndex] || '';
+          }
+        } else if (e.key === 'ArrowDown') {
+          e.preventDefault();
+          if (historyIndex < commandHistory.length - 1) {
+            historyIndex++;
+            terminalInput.value = commandHistory[historyIndex] || '';
+          } else {
+            historyIndex = commandHistory.length;
+            terminalInput.value = '';
+          }
+        }
+      });
+    }
+
+    // Chip buttons
+    chipButtons.forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const cmd = btn.getAttribute('data-cmd');
+        if (cmd) {
+          executeCommand(cmd);
+        }
+      });
     });
-  });
+  }
 
-  // Global helper to run terminal commands
+  // Global helper available immediately
   window.runTerminalCommand = function (cmd) {
-    executeCommand(cmd);
+    executeCommand(cmd || 'help');
   };
-})();
 
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', setupTerminal);
+  } else {
+    setupTerminal();
+  }
+})();
