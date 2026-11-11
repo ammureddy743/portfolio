@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { FileText, Download, X } from 'lucide-react';
 import { playSfx } from '../utils/sound';
 
@@ -8,12 +8,25 @@ interface ResumeModalProps {
 }
 
 export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => {
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') onClose();
+    };
+    if (isOpen) {
+      window.addEventListener('keydown', handleKeyDown);
+    }
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isOpen, onClose]);
+
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-sm animate-fadeIn">
+    <div 
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-sm animate-fadeIn cursor-pointer"
+      onClick={onClose}
+    >
       <div 
-        className="figma-card w-full max-w-4xl h-[90vh] flex flex-col bg-zinc-950 border border-zinc-800 p-0 overflow-hidden rounded-3xl"
+        className="figma-card w-full max-w-4xl h-[90vh] flex flex-col bg-zinc-950 border border-zinc-800 p-0 overflow-hidden rounded-3xl cursor-default"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Project } from '../types';
 import { X, CheckCircle2 } from 'lucide-react';
 import { playSfx } from '../utils/sound';
@@ -12,6 +12,16 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
   const [weight, setWeight] = useState<number>(65);
   const [calcResult, setCalcResult] = useState<string>('Recommended Water Intake: ~2.3 Liters / day');
 
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') onClose();
+    };
+    if (project) {
+      window.addEventListener('keydown', handleKeyDown);
+    }
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [project, onClose]);
+
   if (!project) return null;
 
   const handleCalculateWater = () => {
@@ -21,9 +31,12 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-fadeIn">
+    <div 
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-fadeIn cursor-pointer"
+      onClick={onClose}
+    >
       <div 
-        className="figma-card w-full max-w-3xl max-h-[90vh] overflow-y-auto bg-zinc-950 border border-zinc-800 p-6 sm:p-8 space-y-6 relative rounded-3xl"
+        className="figma-card w-full max-w-3xl max-h-[90vh] overflow-y-auto bg-zinc-950 border border-zinc-800 p-6 sm:p-8 space-y-6 relative rounded-3xl cursor-default"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}

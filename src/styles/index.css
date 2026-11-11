@@ -45,6 +45,17 @@ html {
   font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   background-color: var(--bg-body);
   color: var(--text-primary);
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+/* Hide browser vertical scrollbar completely while retaining smooth scrolling actions */
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none !important;
+  width: 0px !important;
+  height: 0px !important;
+  background: transparent !important;
 }
 
 body {
@@ -52,6 +63,8 @@ body {
   color: var(--text-primary);
   overflow-x: hidden;
   transition: background-color 0.25s ease, color 0.25s ease;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
 }
 
 /* Background Physics Canvas & Ambient Orbs */
