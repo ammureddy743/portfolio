@@ -63,7 +63,7 @@ export const App: React.FC = () => {
   };
 
   return (
-    <div className="relative min-h-screen bg-brand-bg text-white selection:bg-orange-500 selection:text-white">
+    <div className="relative min-h-screen bg-[var(--bg-body)] text-[var(--text-primary)] selection:bg-orange-500 selection:text-white transition-colors duration-200">
       
       {/* Background Ambient Mesh Orbs */}
       <div className="bg-mesh-container">

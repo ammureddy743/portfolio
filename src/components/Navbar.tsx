@@ -64,7 +64,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0d0d0e]/80 dark:bg-[#0d0d0e]/80 backdrop-blur-md border-b border-zinc-800/80 transition-colors">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-[var(--bg-frame)]/90 backdrop-blur-md border-b border-[var(--border-color)] transition-colors">
       <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 h-20 flex items-center justify-between">
         
         {/* Brand Logo */}
@@ -87,7 +87,7 @@ export const Navbar: React.FC<NavbarProps> = ({
         </a>
 
         {/* Desktop Navigation Links */}
-        <div className="hidden md:flex items-center gap-1 bg-zinc-900/60 p-1.5 rounded-full border border-zinc-800/80">
+        <div className="hidden md:flex items-center gap-1 bg-zinc-900/60 dark:bg-zinc-900/60 p-1.5 rounded-full border border-zinc-800/80">
           {navLinks.map((link) => (
             <button
               key={link.id}

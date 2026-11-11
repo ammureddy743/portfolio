@@ -321,15 +321,114 @@ body {
 }
 
 /* Bright / Light Mode Theme Overrides */
-[data-theme="light"] {
+[data-theme="light"],
+html.light {
   color: #18181b;
+  background-color: #f4f4f6;
 }
 
 [data-theme="light"] h1,
 [data-theme="light"] h2,
 [data-theme="light"] h3,
-[data-theme="light"] h4 {
+[data-theme="light"] h4,
+html.light h1,
+html.light h2,
+html.light h3,
+html.light h4 {
   color: #18181b !important;
+}
+
+/* Ensure ALL white text adapts to deep charcoal in bright mode */
+[data-theme="light"] .text-white:not(.btn-orange *):not(.btn-orange):not(.terminal-window *),
+html.light .text-white:not(.btn-orange *):not(.btn-orange):not(.terminal-window *) {
+  color: #18181b !important;
+}
+
+[data-theme="light"] [class*="text-zinc-100"]:not(.terminal-window *),
+[data-theme="light"] [class*="text-zinc-200"]:not(.terminal-window *),
+[data-theme="light"] [class*="text-zinc-300"]:not(.terminal-window *),
+[data-theme="light"] [class*="text-slate-100"]:not(.terminal-window *),
+[data-theme="light"] [class*="text-slate-200"]:not(.terminal-window *),
+[data-theme="light"] [class*="text-slate-300"]:not(.terminal-window *),
+html.light [class*="text-zinc-100"]:not(.terminal-window *),
+html.light [class*="text-zinc-200"]:not(.terminal-window *),
+html.light [class*="text-zinc-300"]:not(.terminal-window *),
+html.light [class*="text-slate-100"]:not(.terminal-window *),
+html.light [class*="text-slate-200"]:not(.terminal-window *),
+html.light [class*="text-slate-300"]:not(.terminal-window *) {
+  color: #27272a !important;
+}
+
+[data-theme="light"] [class*="text-zinc-400"]:not(.terminal-window *),
+[data-theme="light"] [class*="text-slate-400"]:not(.terminal-window *),
+html.light [class*="text-zinc-400"]:not(.terminal-window *),
+html.light [class*="text-slate-400"]:not(.terminal-window *) {
+  color: #52525b !important;
+}
+
+[data-theme="light"] [class*="text-zinc-500"]:not(.terminal-window *),
+[data-theme="light"] [class*="text-slate-500"]:not(.terminal-window *),
+html.light [class*="text-zinc-500"]:not(.terminal-window *),
+html.light [class*="text-slate-500"]:not(.terminal-window *) {
+  color: #71717a !important;
+}
+
+/* Background utilities in bright mode */
+[data-theme="light"] [class*="bg-zinc-950"]:not(.terminal-window *):not(.terminal-window),
+html.light [class*="bg-zinc-950"]:not(.terminal-window *):not(.terminal-window) {
+  background-color: #f4f4f6 !important;
+}
+
+[data-theme="light"] [class*="bg-zinc-900"]:not(.terminal-window *):not(.terminal-window),
+html.light [class*="bg-zinc-900"]:not(.terminal-window *):not(.terminal-window) {
+  background-color: #ffffff !important;
+}
+
+[data-theme="light"] [class*="bg-zinc-800"]:not(.terminal-window *):not(.btn-orange *),
+html.light [class*="bg-zinc-800"]:not(.terminal-window *):not(.btn-orange *) {
+  background-color: #e4e4e7 !important;
+  color: #18181b !important;
+}
+
+[data-theme="light"] [class*="border-zinc-800"]:not(.terminal-window *),
+[data-theme="light"] [class*="border-zinc-700"]:not(.terminal-window *),
+html.light [class*="border-zinc-800"]:not(.terminal-window *),
+html.light [class*="border-zinc-700"]:not(.terminal-window *) {
+  border-color: #e4e4e7 !important;
+}
+
+/* Input, Textarea, Select */
+[data-theme="light"] input:not(.terminal-input),
+[data-theme="light"] textarea,
+[data-theme="light"] select,
+html.light input:not(.terminal-input),
+html.light textarea,
+html.light select {
+  background-color: #ffffff !important;
+  color: #18181b !important;
+  border-color: #d4d4d8 !important;
+}
+
+[data-theme="light"] input::placeholder,
+[data-theme="light"] textarea::placeholder,
+html.light input::placeholder,
+html.light textarea::placeholder {
+  color: #a1a1aa !important;
+}
+
+/* Ensure buttons with orange backgrounds RETAIN crisp white text */
+[data-theme="light"] .btn-orange,
+[data-theme="light"] .btn-orange *,
+html.light .btn-orange,
+html.light .btn-orange * {
+  color: #ffffff !important;
+}
+
+/* Navbar */
+[data-theme="light"] nav,
+html.light nav {
+  background-color: rgba(255, 255, 255, 0.92) !important;
+  border-color: #e4e4e7 !important;
 }
 
 [data-theme="light"] .figma-card {
