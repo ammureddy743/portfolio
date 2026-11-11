@@ -16,9 +16,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initMobileMenu();
   initComponentSandbox();
   initFaqAccordion();
-  initPhotoUpload();
-  initCursorGlow();
-  initShareButton();
 });
 
 /* ==========================================================================
@@ -254,18 +251,14 @@ function initThemeToggle() {
 
   const currentTheme = localStorage.getItem('lk_theme') || 'dark';
   document.documentElement.setAttribute('data-theme', currentTheme);
-  document.documentElement.classList.toggle('dark', currentTheme === 'dark');
-  document.documentElement.classList.toggle('light', currentTheme === 'light');
   updateThemeIcon(currentTheme);
 
   themeBtn.addEventListener('click', () => {
     const nowTheme = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
     document.documentElement.setAttribute('data-theme', nowTheme);
-    document.documentElement.classList.toggle('dark', nowTheme === 'dark');
-    document.documentElement.classList.toggle('light', nowTheme === 'light');
     localStorage.setItem('lk_theme', nowTheme);
     updateThemeIcon(nowTheme);
-    showToast(`Switched to ${nowTheme === 'light' ? 'Bright / Light' : 'Matte Dark'} mode`, 'info');
+    showToast(`Switched to ${nowTheme === 'light' ? 'Crystal Light' : 'Obsidian Dark'} mode`, 'info');
   });
 
   function updateThemeIcon(theme) {
@@ -919,132 +912,3 @@ function showToast(message, type = 'info') {
     setTimeout(() => toast.remove(), 350);
   }, 3500);
 }
-
-/* ==========================================================================
-   14. PERSONAL PHOTO UPLOAD & PERSISTENCE
-   ========================================================================== */
-function initPhotoUpload() {
-  const trigger = document.getElementById('portraitUploadTrigger');
-  const fileInput = document.getElementById('portraitFileInput');
-  const portraitImg = document.getElementById('heroPortraitImg');
-  const resetBtn = document.getElementById('resetPortraitBtn');
-  
-  if (!trigger || !fileInput || !portraitImg) return;
-
-  function applyCustomPhoto(dataUrl) {
-    portraitImg.src = dataUrl;
-    portraitImg.style.width = '100%';
-    portraitImg.style.height = '100%';
-    portraitImg.style.borderRadius = '50%';
-    portraitImg.style.objectFit = 'cover';
-    if (resetBtn) resetBtn.classList.remove('hidden');
-  }
-
-  function resetToDefault() {
-    portraitImg.src = 'assets/developer-portrait.svg';
-    portraitImg.style.width = '';
-    portraitImg.style.height = '';
-    portraitImg.style.borderRadius = '';
-    portraitImg.style.objectFit = '';
-    localStorage.removeItem('lk_profile_photo');
-    if (resetBtn) resetBtn.classList.add('hidden');
-    showToast('Reset to default avatar', 'info');
-  }
-
-  // Restore saved photo from localStorage if present
-  const savedPhoto = localStorage.getItem('lk_profile_photo');
-  if (savedPhoto) {
-    applyCustomPhoto(savedPhoto);
-  }
-
-  trigger.addEventListener('click', () => {
-    fileInput.click();
-  });
-
-  if (resetBtn) {
-    resetBtn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      resetToDefault();
-    });
-  }
-
-  fileInput.addEventListener('change', (e) => {
-    const file = e.target.files[0];
-    if (!file) return;
-
-    if (!file.type.startsWith('image/')) {
-      showToast('Please select a valid image file (JPG, PNG, WebP).', 'error');
-      return;
-    }
-
-    const reader = new FileReader();
-    reader.onload = (event) => {
-      const dataUrl = event.target.result;
-      applyCustomPhoto(dataUrl);
-      
-      try {
-        localStorage.setItem('lk_profile_photo', dataUrl);
-      } catch (err) {
-        console.warn('LocalStorage limit exceeded for photo', err);
-      }
-
-      showToast('Your photo has been uploaded & set successfully!', 'success');
-      if (window.playSfx) window.playSfx('success');
-    };
-    reader.readAsDataURL(file);
-  });
-}
-
-/* ==========================================================================
-   15. INTERACTIVE CURSOR GLOW
-   ========================================================================== */
-function initCursorGlow() {
-  const glow = document.getElementById('cursorGlow');
-  if (!glow) return;
-
-  let mouseX = -500;
-  let mouseY = -500;
-
-  window.addEventListener('mousemove', (e) => {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
-    glow.style.left = mouseX + 'px';
-    glow.style.top = mouseY + 'px';
-    glow.style.opacity = '1';
-  }, { passive: true });
-
-  document.addEventListener('mouseleave', () => {
-    glow.style.opacity = '0';
-  });
-
-  document.addEventListener('mouseenter', () => {
-    glow.style.opacity = '1';
-  });
-}
-
-/* ==========================================================================
-   16. SHARE PORTFOLIO BUTTON
-   ========================================================================== */
-function initShareButton() {
-  const shareBtn = document.getElementById('sharePortfolioBtn');
-  if (!shareBtn) return;
-
-  shareBtn.addEventListener('click', () => {
-    const url = window.location.href;
-    if (navigator.share) {
-      navigator.share({
-        title: 'Lakshmi Chandrakala | Frontend & Mobile Developer Portfolio',
-        text: 'Explore the portfolio of Gurrala Lakshmi Chandrakala Reddy (React.js, React Native, ServiceNow CSA):',
-        url: url
-      }).catch(() => {});
-    } else {
-      navigator.clipboard.writeText(url).then(() => {
-        showToast('Portfolio link copied to clipboard! Ready to share.', 'success');
-        if (window.playSfx) window.playSfx('success');
-      });
-    }
-  });
-}
-
-
-
