@@ -33,18 +33,18 @@
 }
 
 [data-theme="light"] {
-  --bg-body: #f4f4f6;
-  --bg-frame: #ffffff;
-  --bg-card: #fcfcfd;
+  --bg-body: #f0ebe1;
+  --bg-frame: #f7f4ed;
+  --bg-card: #f9f6f0;
   --bg-card-hover: #ffffff;
-  --bg-circle: #ebebed;
+  --bg-circle: #e4ded1;
   
-  --border-color: #e4e4e7;
+  --border-color: #dcd5c4;
   --border-color-hover: #ff6b00;
   
-  --text-primary: #18181b;
-  --text-secondary: #52525b;
-  --text-muted: #71717a;
+  --text-primary: #1c1917;
+  --text-secondary: #57534e;
+  --text-muted: #78716c;
   
   --terminal-bg: #111114;
   --terminal-header: #19191d;
@@ -84,60 +84,60 @@
 }
 
 [data-theme="light"] [class*="bg-zinc-950"] {
-  background-color: #f4f4f6 !important;
+  background-color: #f0ebe1 !important;
 }
 
 [data-theme="light"] [class*="bg-zinc-900"] {
-  background-color: #f8f8fa !important;
+  background-color: #f9f6f0 !important;
 }
 
 [data-theme="light"] [class*="bg-zinc-800"] {
-  background-color: #e4e4e7 !important;
-  color: #18181b !important;
+  background-color: #e4ded1 !important;
+  color: #1c1917 !important;
 }
 
 [data-theme="light"] [class*="border-zinc-800"],
 [data-theme="light"] [class*="border-zinc-700"] {
-  border-color: #e4e4e7 !important;
+  border-color: #dcd5c4 !important;
 }
 
 /* Slate utility light overrides for interactive sandbox */
 [data-theme="light"] [class*="bg-slate-900"] {
-  background-color: #f4f4f6 !important;
+  background-color: #f0ebe1 !important;
 }
 [data-theme="light"] [class*="border-slate-800"],
 [data-theme="light"] [class*="border-slate-700"] {
-  border-color: #e4e4e7 !important;
+  border-color: #dcd5c4 !important;
 }
 [data-theme="light"] [class*="text-slate-200"],
 [data-theme="light"] [class*="text-slate-100"] {
-  color: #18181b !important;
+  color: #1c1917 !important;
 }
 [data-theme="light"] [class*="text-slate-300"] {
-  color: #27272a !important;
+  color: #292524 !important;
 }
 [data-theme="light"] [class*="text-slate-400"] {
-  color: #52525b !important;
+  color: #57534e !important;
 }
 [data-theme="light"] [class*="text-slate-500"] {
-  color: #71717a !important;
+  color: #78716c !important;
 }
 
 [data-theme="light"] .figma-card {
-  background: #ffffff !important;
-  border-color: #e4e4e7 !important;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04) !important;
+  background: #f9f6f0 !important;
+  border-color: #dcd5c4 !important;
+  box-shadow: 0 4px 20px rgba(60, 50, 30, 0.05) !important;
 }
 
 [data-theme="light"] .hero-stats-card {
-  background: #ffffff !important;
-  border-color: #e4e4e7 !important;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04) !important;
+  background: #f9f6f0 !important;
+  border-color: #dcd5c4 !important;
+  box-shadow: 0 4px 16px rgba(60, 50, 30, 0.04) !important;
 }
 
 [data-theme="light"] .social-icon-btn {
-  background: #ffffff !important;
-  border-color: #e4e4e7 !important;
+  background: #f9f6f0 !important;
+  border-color: #dcd5c4 !important;
   color: #52525b !important;
 }
 [data-theme="light"] .social-icon-btn:hover {
