@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initComponentSandbox();
   initFaqAccordion();
   initPhotoUpload();
+  initCursorGlow();
 });
 
 /* ==========================================================================
@@ -992,4 +993,32 @@ function initPhotoUpload() {
     reader.readAsDataURL(file);
   });
 }
+
+/* ==========================================================================
+   15. INTERACTIVE CURSOR GLOW
+   ========================================================================== */
+function initCursorGlow() {
+  const glow = document.getElementById('cursorGlow');
+  if (!glow) return;
+
+  let mouseX = -500;
+  let mouseY = -500;
+
+  window.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    glow.style.left = mouseX + 'px';
+    glow.style.top = mouseY + 'px';
+    glow.style.opacity = '1';
+  }, { passive: true });
+
+  document.addEventListener('mouseleave', () => {
+    glow.style.opacity = '0';
+  });
+
+  document.addEventListener('mouseenter', () => {
+    glow.style.opacity = '1';
+  });
+}
+
 
