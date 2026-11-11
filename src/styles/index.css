@@ -30,18 +30,18 @@
 [data-theme="light"],
 html.light {
   /* Warm Linen / Sand Designer Canvas (Gentle on the eyes, NOT full white) */
-  --bg-body: #f0ebe1;
-  --bg-frame: #f7f4ed;
-  --bg-card: #f9f6f0;
-  --bg-card-hover: #ffffff;
-  --bg-circle: #e4ded1;
+  --bg-body: #e8e1ce;
+  --bg-frame: #d8cfb9;
+  --bg-card: #dfd7c3;
+  --bg-card-hover: #e5decb;
+  --bg-circle: #cfc5ae;
   
-  --border-color: #dcd5c4;
+  --border-color: rgba(140, 120, 90, 0.35);
   --border-color-hover: #ff6b00;
   
-  --text-primary: #1c1917;
-  --text-secondary: #57534e;
-  --text-muted: #78716c;
+  --text-primary: #111827;
+  --text-secondary: #2d3748;
+  --text-muted: #4a5568;
 }
 
 /* Global Font: Poppins across all text elements */
