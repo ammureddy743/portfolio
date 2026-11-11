@@ -1,0 +1,20 @@
+{
+  "name": "lakshmi-chandrakala-portfolio",
+  "version": "1.0.0",
+  "description": "Unique & Professional Portfolio for Gurrala Lakshmi Chandrakala Reddy - Frontend Developer & Mobile Engineer",
+  "main": "index.html",
+  "scripts": {
+    "start": "node serve.js",
+    "dev": "node serve.js"
+  },
+  "keywords": [
+    "portfolio",
+    "frontend-developer",
+    "react",
+    "react-native",
+    "servicenow-csa",
+    "tailwind"
+  ],
+  "author": "Gurrala Lakshmi Chandrakala Reddy",
+  "license": "MIT"
+}
