@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initTypingEffect();
   initThemeToggle();
   initAudioSynthesizer();
+  initSkillTabs();
   initProjectFilters();
   initModals();
   initContactForm();
@@ -296,6 +297,39 @@ function initThemeToggle() {
     }
     if (window.lucide) lucide.createIcons();
   }
+}
+
+/* ==========================================================================
+   4.5. SKILLS & TOOLING BENTO FILTER TABS
+   ========================================================================== */
+function initSkillTabs() {
+  const tabs = document.querySelectorAll('.skill-tab-btn');
+  const cards = document.querySelectorAll('.bento-skill-card');
+  if (!tabs.length || !cards.length) return;
+
+  tabs.forEach((tab) => {
+    tab.addEventListener('click', (e) => {
+      e.preventDefault();
+      tabs.forEach((t) => {
+        t.classList.remove('active', 'bg-indigo-600', 'text-white', 'shadow-lg', 'shadow-indigo-600/30');
+        t.classList.add('bg-slate-900/80', 'text-slate-300');
+      });
+      tab.classList.add('active', 'bg-indigo-600', 'text-white', 'shadow-lg', 'shadow-indigo-600/30');
+      tab.classList.remove('bg-slate-900/80', 'text-slate-300');
+
+      const filter = tab.getAttribute('data-skill-filter');
+      cards.forEach((card) => {
+        const cat = card.getAttribute('data-skill-cat') || '';
+        if (filter === 'all' || cat.includes(filter)) {
+          card.style.display = '';
+          card.style.opacity = '1';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+      if (window.soundFX) window.soundFX.playClick();
+    });
+  });
 }
 
 /* ==========================================================================
