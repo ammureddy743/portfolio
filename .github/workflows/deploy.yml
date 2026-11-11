@@ -33,9 +33,28 @@ jobs:
       - name: Build React TypeScript application
         run: npm run build
 
+      - name: Create .nojekyll in dist
+        run: touch dist/.nojekyll
+
       - name: Deploy to gh-pages branch
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: dist
           branch: gh-pages
+
+      - name: Upload GitHub Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy-pages:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    needs: deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
 
