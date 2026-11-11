@@ -47,16 +47,12 @@
 </head>
 <body class="selection:bg-orange-500 selection:text-white">
 
-  <!-- Modern Dot Grid Background & Ambient Glowing Orbs -->
-  <div class="tech-bg-container">
-    <div class="tech-dot-grid"></div>
-    <div class="ambient-orb ambient-orb-1"></div>
-    <div class="ambient-orb ambient-orb-2"></div>
-    <div class="ambient-orb ambient-orb-3"></div>
+  <!-- Background Ambient Glow Orbs (Original First Background) -->
+  <div class="bg-mesh">
+    <div class="mesh-orb-1"></div>
+    <div class="mesh-orb-2"></div>
+    <div class="mesh-orb-3"></div>
   </div>
-
-  <!-- Interactive Subtle Cursor Glow -->
-  <div id="cursorGlow"></div>
 
   <!-- Main Figma Artboard Container Frame -->
   <div class="figma-app-container">
@@ -123,8 +119,11 @@
     <!-- ==========================================================================
          HERO SECTION (MATCHING FIGMA TEMPLATE HERO LAYOUT)
          ========================================================================== -->
-    <section id="home" class="px-6 sm:px-10 lg:px-16 pt-12 pb-20 border-b border-zinc-800/60">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+    <section id="home" class="relative px-6 sm:px-10 lg:px-16 pt-12 pb-20 border-b border-zinc-800/60 overflow-hidden">
+      <!-- Interactive Constellation Canvas from First Background -->
+      <canvas id="heroCanvas"></canvas>
+
+      <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
         
         <!-- Left Column: Hi I am, Name, Big Orange Title, Socials, Dual Buttons, Stats -->
         <div class="lg:col-span-7 space-y-7">
