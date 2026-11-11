@@ -252,14 +252,18 @@ function initThemeToggle() {
 
   const currentTheme = localStorage.getItem('lk_theme') || 'dark';
   document.documentElement.setAttribute('data-theme', currentTheme);
+  document.documentElement.classList.toggle('dark', currentTheme === 'dark');
+  document.documentElement.classList.toggle('light', currentTheme === 'light');
   updateThemeIcon(currentTheme);
 
   themeBtn.addEventListener('click', () => {
     const nowTheme = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
     document.documentElement.setAttribute('data-theme', nowTheme);
+    document.documentElement.classList.toggle('dark', nowTheme === 'dark');
+    document.documentElement.classList.toggle('light', nowTheme === 'light');
     localStorage.setItem('lk_theme', nowTheme);
     updateThemeIcon(nowTheme);
-    showToast(`Switched to ${nowTheme === 'light' ? 'Crystal Light' : 'Obsidian Dark'} mode`, 'info');
+    showToast(`Switched to ${nowTheme === 'light' ? 'Bright / Light' : 'Matte Dark'} mode`, 'info');
   });
 
   function updateThemeIcon(theme) {

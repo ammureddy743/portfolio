@@ -35,19 +35,182 @@
 [data-theme="light"] {
   --bg-body: #f4f4f6;
   --bg-frame: #ffffff;
-  --bg-card: #f9f9fb;
+  --bg-card: #fcfcfd;
   --bg-card-hover: #ffffff;
-  --bg-circle: #f0f0f3;
+  --bg-circle: #ebebed;
   
   --border-color: #e4e4e7;
   --border-color-hover: #ff6b00;
   
   --text-primary: #18181b;
   --text-secondary: #52525b;
-  --text-muted: #a1a1aa;
+  --text-muted: #71717a;
   
-  --terminal-bg: #1c1c20;
-  --terminal-header: #27272e;
+  --terminal-bg: #111114;
+  --terminal-header: #19191d;
+}
+
+/* ==========================================================================
+   BRIGHT / LIGHT MODE COMPREHENSIVE CONTRAST & LEGIBILITY ENGINE
+   Fixes: ensures white text automatically adapts to dark charcoal in bright mode
+   ========================================================================== */
+[data-theme="light"] {
+  color: #18181b;
+}
+
+[data-theme="light"] .text-white {
+  color: #18181b !important;
+}
+
+[data-theme="light"] .text-zinc-100,
+[data-theme="light"] .text-zinc-200,
+[data-theme="light"] .text-zinc-300 {
+  color: #27272a !important;
+}
+
+[data-theme="light"] .text-zinc-400 {
+  color: #52525b !important;
+}
+
+[data-theme="light"] .text-zinc-500 {
+  color: #71717a !important;
+}
+
+[data-theme="light"] .bg-zinc-950 {
+  background-color: #f4f4f6 !important;
+}
+
+[data-theme="light"] .bg-zinc-900,
+[data-theme="light"] .bg-zinc-900\/90,
+[data-theme="light"] .bg-zinc-900\/80 {
+  background-color: #fcfcfd !important;
+}
+
+[data-theme="light"] .bg-zinc-800,
+[data-theme="light"] .bg-zinc-800\/80,
+[data-theme="light"] .bg-zinc-800\/60 {
+  background-color: #e4e4e7 !important;
+  color: #18181b !important;
+}
+
+[data-theme="light"] .border-zinc-800,
+[data-theme="light"] .border-zinc-800\/80,
+[data-theme="light"] .border-zinc-800\/60,
+[data-theme="light"] .border-zinc-700,
+[data-theme="light"] .border-zinc-700\/60 {
+  border-color: #e4e4e7 !important;
+}
+
+[data-theme="light"] .figma-card {
+  background: #ffffff !important;
+  border-color: #e4e4e7 !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04) !important;
+}
+
+[data-theme="light"] .hero-stats-card {
+  background: #ffffff !important;
+  border-color: #e4e4e7 !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04) !important;
+}
+
+[data-theme="light"] .social-icon-btn {
+  background: #ffffff !important;
+  border-color: #e4e4e7 !important;
+  color: #52525b !important;
+}
+[data-theme="light"] .social-icon-btn:hover {
+  background: var(--accent-orange-light) !important;
+  border-color: var(--accent-orange) !important;
+  color: var(--accent-orange) !important;
+}
+
+[data-theme="light"] .btn-outline {
+  background: #ffffff !important;
+  border-color: #d4d4d8 !important;
+  color: #18181b !important;
+}
+[data-theme="light"] .btn-outline:hover {
+  border-color: var(--accent-orange) !important;
+  color: var(--accent-orange) !important;
+  background: var(--accent-orange-light) !important;
+}
+
+[data-theme="light"] input,
+[data-theme="light"] textarea,
+[data-theme="light"] select {
+  background-color: #ffffff !important;
+  color: #18181b !important;
+  border-color: #d4d4d8 !important;
+}
+[data-theme="light"] input::placeholder,
+[data-theme="light"] textarea::placeholder {
+  color: #a1a1aa !important;
+}
+
+[data-theme="light"] .faq-item {
+  background: #ffffff !important;
+  border-color: #e4e4e7 !important;
+}
+[data-theme="light"] .faq-btn {
+  color: #18181b !important;
+}
+[data-theme="light"] .faq-content {
+  color: #52525b !important;
+}
+
+[data-theme="light"] .modal-container {
+  background: #ffffff !important;
+  border-color: #e4e4e7 !important;
+  color: #18181b !important;
+}
+
+[data-theme="light"] footer {
+  background-color: #f4f4f6 !important;
+  border-color: #e4e4e7 !important;
+  color: #52525b !important;
+}
+
+/* Ensure buttons with orange backgrounds RETAIN crisp white text */
+[data-theme="light"] .btn-orange,
+[data-theme="light"] .btn-orange *,
+[data-theme="light"] .filter-btn.active,
+[data-theme="light"] .filter-btn.active *,
+[data-theme="light"] .sandbox-tab-btn.active,
+[data-theme="light"] .sandbox-tab-btn.active * {
+  color: #ffffff !important;
+}
+
+/* Ensure terminal maintains developer contrast in bright mode */
+[data-theme="light"] .terminal-window {
+  background: #111114 !important;
+  border-color: #27272a !important;
+}
+[data-theme="light"] .terminal-header {
+  background: #19191d !important;
+}
+[data-theme="light"] .terminal-body {
+  background: #111114 !important;
+}
+[data-theme="light"] .terminal-body * {
+  color: #e4e4e7 !important;
+}
+[data-theme="light"] .terminal-prompt {
+  color: var(--accent-orange) !important;
+}
+[data-theme="light"] .terminal-input {
+  color: #ffffff !important;
+}
+[data-theme="light"] .terminal-window .term-chip {
+  background: #27272a !important;
+  color: #ff8533 !important;
+}
+[data-theme="light"] .terminal-window .term-chip:hover {
+  background: #3f3f46 !important;
+}
+[data-theme="light"] .terminal-window [data-cmd="sudo hire"] {
+  background: rgba(255, 107, 0, 0.25) !important;
+  color: #ff6b00 !important;
+  border-color: #ff6b00 !important;
 }
 
 * {
