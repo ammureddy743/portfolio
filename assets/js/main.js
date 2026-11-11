@@ -16,7 +16,32 @@ document.addEventListener('DOMContentLoaded', () => {
   initMobileMenu();
   initComponentSandbox();
   initFaqAccordion();
+  initAvatar();
 });
+
+function initAvatar() {
+  const saved = localStorage.getItem('lk_avatar_img');
+  if (saved) {
+    const img = document.getElementById('heroAvatarImg');
+    if (img) img.src = saved;
+  }
+}
+
+window.handleAvatarUpload = function(e) {
+  const file = e.target.files?.[0];
+  if (file) {
+    const reader = new FileReader();
+    reader.onload = () => {
+      const result = reader.result;
+      const img = document.getElementById('heroAvatarImg');
+      if (img) img.src = result;
+      localStorage.setItem('lk_avatar_img', result);
+      showToast('Profile photo updated successfully!', 'success');
+      if (window.soundFX) window.soundFX.playSuccess();
+    };
+    reader.readAsDataURL(file);
+  }
+};
 
 /* ==========================================================================
    1. HERO CONSTELLATION CANVAS
