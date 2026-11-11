@@ -58,47 +58,69 @@
   color: #18181b;
 }
 
+[data-theme="light"] h1,
+[data-theme="light"] h2,
+[data-theme="light"] h3,
+[data-theme="light"] h4 {
+  color: #18181b !important;
+}
+
 [data-theme="light"] .text-white {
   color: #18181b !important;
 }
 
-[data-theme="light"] .text-zinc-100,
-[data-theme="light"] .text-zinc-200,
-[data-theme="light"] .text-zinc-300 {
+[data-theme="light"] [class*="text-zinc-100"],
+[data-theme="light"] [class*="text-zinc-200"],
+[data-theme="light"] [class*="text-zinc-300"] {
   color: #27272a !important;
 }
 
-[data-theme="light"] .text-zinc-400 {
+[data-theme="light"] [class*="text-zinc-400"] {
   color: #52525b !important;
 }
 
-[data-theme="light"] .text-zinc-500 {
+[data-theme="light"] [class*="text-zinc-500"] {
   color: #71717a !important;
 }
 
-[data-theme="light"] .bg-zinc-950 {
+[data-theme="light"] [class*="bg-zinc-950"] {
   background-color: #f4f4f6 !important;
 }
 
-[data-theme="light"] .bg-zinc-900,
-[data-theme="light"] .bg-zinc-900\/90,
-[data-theme="light"] .bg-zinc-900\/80 {
-  background-color: #fcfcfd !important;
+[data-theme="light"] [class*="bg-zinc-900"] {
+  background-color: #f8f8fa !important;
 }
 
-[data-theme="light"] .bg-zinc-800,
-[data-theme="light"] .bg-zinc-800\/80,
-[data-theme="light"] .bg-zinc-800\/60 {
+[data-theme="light"] [class*="bg-zinc-800"] {
   background-color: #e4e4e7 !important;
   color: #18181b !important;
 }
 
-[data-theme="light"] .border-zinc-800,
-[data-theme="light"] .border-zinc-800\/80,
-[data-theme="light"] .border-zinc-800\/60,
-[data-theme="light"] .border-zinc-700,
-[data-theme="light"] .border-zinc-700\/60 {
+[data-theme="light"] [class*="border-zinc-800"],
+[data-theme="light"] [class*="border-zinc-700"] {
   border-color: #e4e4e7 !important;
+}
+
+/* Slate utility light overrides for interactive sandbox */
+[data-theme="light"] [class*="bg-slate-900"] {
+  background-color: #f4f4f6 !important;
+}
+[data-theme="light"] [class*="border-slate-800"],
+[data-theme="light"] [class*="border-slate-700"] {
+  border-color: #e4e4e7 !important;
+}
+[data-theme="light"] [class*="text-slate-200"],
+[data-theme="light"] [class*="text-slate-100"] {
+  color: #18181b !important;
+}
+[data-theme="light"] [class*="text-slate-300"] {
+  color: #27272a !important;
+}
+[data-theme="light"] [class*="text-slate-400"] {
+  color: #52525b !important;
+}
+[data-theme="light"] [class*="text-slate-500"] {
+  color: #71717a !important;
 }
 
 [data-theme="light"] .figma-card {
@@ -560,16 +582,101 @@ body {
 /* Skill Progress Bar (About Me) */
 .skill-bar-container {
   width: 100%;
-  height: 8px;
-  background: var(--bg-body);
+  height: 9px;
+  background: #27272a;
+  border: 1px solid #3f3f46;
   border-radius: 9999px;
   overflow: hidden;
   margin-top: 0.5rem;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.4);
 }
 .skill-bar-fill {
   height: 100%;
-  background: var(--accent-orange);
+  background: linear-gradient(90deg, #ff6b00, #ff8533);
   border-radius: 9999px;
+  box-shadow: 0 0 10px rgba(255, 107, 0, 0.4);
+  transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+[data-theme="light"] .skill-bar-container {
+  background: #e4e4e7 !important;
+  border: 1px solid #d4d4d8 !important;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.08) !important;
+}
+
+/* Info Box & Info Pills (Theme Adaptable) */
+.info-card-box {
+  background: #141416;
+  border: 1px solid #27272a;
+  border-radius: 0.875rem;
+  padding: 1rem;
+  transition: all 0.25s ease;
+}
+.info-label {
+  color: #71717a;
+  font-weight: 500;
+}
+.info-val {
+  color: #f4f4f5;
+  font-weight: 500;
+}
+.info-val-accent {
+  color: var(--accent-orange);
+}
+
+[data-theme="light"] .info-card-box {
+  background: #f4f4f6 !important;
+  border: 1px solid #e4e4e7 !important;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.02) !important;
+}
+[data-theme="light"] .info-label {
+  color: #52525b !important;
+}
+[data-theme="light"] .info-val {
+  color: #18181b !important;
+}
+[data-theme="light"] .info-val-accent {
+  color: var(--accent-orange) !important;
+}
+
+.info-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.35rem 0.85rem;
+  border-radius: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  background: #27272a;
+  border: 1px solid #3f3f46;
+  color: #d4d4d8;
+  transition: all 0.2s ease;
+}
+.info-badge-orange {
+  background: rgba(255, 107, 0, 0.12);
+  border-color: rgba(255, 107, 0, 0.35);
+  color: #ff8533;
+}
+[data-theme="light"] .info-badge {
+  background: #f4f4f6 !important;
+  border-color: #d4d4d8 !important;
+  color: #27272a !important;
+}
+[data-theme="light"] .info-badge-orange {
+  background: rgba(255, 107, 0, 0.12) !important;
+  border-color: rgba(255, 107, 0, 0.4) !important;
+  color: #ea580c !important;
+}
+
+/* Sandbox Task Items Light Mode Adaptability */
+[data-theme="light"] .task-item {
+  background: #f4f4f6 !important;
+  border-color: #e4e4e7 !important;
+}
+[data-theme="light"] .task-item .task-text {
+  color: #18181b !important;
+}
+[data-theme="light"] .task-item.completed .task-text {
+  color: #a1a1aa !important;
+  text-decoration: line-through;
 }
 
 /* Terminal Styles */
