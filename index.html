@@ -205,10 +205,17 @@
 
         </div>
 
-        <!-- Right Column: Big Circular Portrait Frame (Matching Figma Template Circle Backdrop) -->
+        <!-- Right Column: Big Circular Portrait Frame (With Instant Upload Feature) -->
         <div class="lg:col-span-5 flex justify-center">
-          <div class="hero-portrait-circle">
-            <img src="assets/developer-portrait.svg" alt="Lakshmi Chandrakala Reddy - Frontend Developer" class="hero-portrait-img" />
+          <div class="hero-portrait-circle group relative cursor-pointer" id="portraitUploadTrigger" title="Click to upload/change with your real photo">
+            <img id="heroPortraitImg" src="assets/developer-portrait.svg" alt="Gurrala Lakshmi Chandrakala Reddy" class="hero-portrait-img" />
+            <input type="file" id="portraitFileInput" accept="image/*" class="hidden" />
+            
+            <!-- Hover / Click Badge -->
+            <div class="absolute bottom-5 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity bg-zinc-950/95 border border-orange-500 text-white text-[11px] font-semibold py-1.5 px-3.5 rounded-full shadow-2xl flex items-center gap-1.5 z-20 pointer-events-none whitespace-nowrap">
+              <i data-lucide="camera" class="w-3.5 h-3.5 text-orange-500"></i>
+              <span>Click to upload your personal photo</span>
+            </div>
           </div>
         </div>
 

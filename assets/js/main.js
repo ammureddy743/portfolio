@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initMobileMenu();
   initComponentSandbox();
   initFaqAccordion();
+  initPhotoUpload();
 });
 
 /* ==========================================================================
@@ -912,3 +913,59 @@ function showToast(message, type = 'info') {
     setTimeout(() => toast.remove(), 350);
   }, 3500);
 }
+
+/* ==========================================================================
+   14. PERSONAL PHOTO UPLOAD & PERSISTENCE
+   ========================================================================== */
+function initPhotoUpload() {
+  const trigger = document.getElementById('portraitUploadTrigger');
+  const fileInput = document.getElementById('portraitFileInput');
+  const portraitImg = document.getElementById('heroPortraitImg');
+  
+  if (!trigger || !fileInput || !portraitImg) return;
+
+  // Restore saved photo from localStorage if present
+  const savedPhoto = localStorage.getItem('lk_profile_photo');
+  if (savedPhoto) {
+    portraitImg.src = savedPhoto;
+    portraitImg.style.width = '100%';
+    portraitImg.style.height = '100%';
+    portraitImg.style.borderRadius = '50%';
+    portraitImg.style.objectFit = 'cover';
+  }
+
+  trigger.addEventListener('click', () => {
+    fileInput.click();
+  });
+
+  fileInput.addEventListener('change', (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+
+    if (!file.type.startsWith('image/')) {
+      showToast('Please select a valid image file (JPG, PNG, WebP).', 'error');
+      return;
+    }
+
+    const reader = new FileReader();
+    reader.onload = (event) => {
+      const dataUrl = event.target.result;
+      portraitImg.src = dataUrl;
+      portraitImg.style.width = '100%';
+      portraitImg.style.height = '100%';
+      portraitImg.style.borderRadius = '50%';
+      portraitImg.style.objectFit = 'cover';
+      
+      try {
+        localStorage.setItem('lk_profile_photo', dataUrl);
+      } catch (err) {
+        console.warn('LocalStorage limit exceeded for photo', err);
+      }
+
+      showToast('Your photo has been uploaded & set successfully!', 'success');
+      if (window.playSfx) window.playSfx('success');
+    };
+    reader.readAsDataURL(file);
+  });
+}
+
