@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initFaqAccordion();
   initPhotoUpload();
   initCursorGlow();
+  initShareButton();
 });
 
 /* ==========================================================================
@@ -1020,5 +1021,30 @@ function initCursorGlow() {
     glow.style.opacity = '1';
   });
 }
+
+/* ==========================================================================
+   16. SHARE PORTFOLIO BUTTON
+   ========================================================================== */
+function initShareButton() {
+  const shareBtn = document.getElementById('sharePortfolioBtn');
+  if (!shareBtn) return;
+
+  shareBtn.addEventListener('click', () => {
+    const url = window.location.href;
+    if (navigator.share) {
+      navigator.share({
+        title: 'Lakshmi Chandrakala | Frontend & Mobile Developer Portfolio',
+        text: 'Explore the portfolio of Gurrala Lakshmi Chandrakala Reddy (React.js, React Native, ServiceNow CSA):',
+        url: url
+      }).catch(() => {});
+    } else {
+      navigator.clipboard.writeText(url).then(() => {
+        showToast('Portfolio link copied to clipboard! Ready to share.', 'success');
+        if (window.playSfx) window.playSfx('success');
+      });
+    }
+  });
+}
+
 
 
