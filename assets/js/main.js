@@ -925,22 +925,46 @@ function initPhotoUpload() {
   const trigger = document.getElementById('portraitUploadTrigger');
   const fileInput = document.getElementById('portraitFileInput');
   const portraitImg = document.getElementById('heroPortraitImg');
+  const resetBtn = document.getElementById('resetPortraitBtn');
   
   if (!trigger || !fileInput || !portraitImg) return;
 
-  // Restore saved photo from localStorage if present
-  const savedPhoto = localStorage.getItem('lk_profile_photo');
-  if (savedPhoto) {
-    portraitImg.src = savedPhoto;
+  function applyCustomPhoto(dataUrl) {
+    portraitImg.src = dataUrl;
     portraitImg.style.width = '100%';
     portraitImg.style.height = '100%';
     portraitImg.style.borderRadius = '50%';
     portraitImg.style.objectFit = 'cover';
+    if (resetBtn) resetBtn.classList.remove('hidden');
+  }
+
+  function resetToDefault() {
+    portraitImg.src = 'assets/developer-portrait.svg';
+    portraitImg.style.width = '';
+    portraitImg.style.height = '';
+    portraitImg.style.borderRadius = '';
+    portraitImg.style.objectFit = '';
+    localStorage.removeItem('lk_profile_photo');
+    if (resetBtn) resetBtn.classList.add('hidden');
+    showToast('Reset to default avatar', 'info');
+  }
+
+  // Restore saved photo from localStorage if present
+  const savedPhoto = localStorage.getItem('lk_profile_photo');
+  if (savedPhoto) {
+    applyCustomPhoto(savedPhoto);
   }
 
   trigger.addEventListener('click', () => {
     fileInput.click();
   });
+
+  if (resetBtn) {
+    resetBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      resetToDefault();
+    });
+  }
 
   fileInput.addEventListener('change', (e) => {
     const file = e.target.files[0];
@@ -954,11 +978,7 @@ function initPhotoUpload() {
     const reader = new FileReader();
     reader.onload = (event) => {
       const dataUrl = event.target.result;
-      portraitImg.src = dataUrl;
-      portraitImg.style.width = '100%';
-      portraitImg.style.height = '100%';
-      portraitImg.style.borderRadius = '50%';
-      portraitImg.style.objectFit = 'cover';
+      applyCustomPhoto(dataUrl);
       
       try {
         localStorage.setItem('lk_profile_photo', dataUrl);

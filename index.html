@@ -206,7 +206,7 @@
         </div>
 
         <!-- Right Column: Big Circular Portrait Frame (With Instant Upload Feature) -->
-        <div class="lg:col-span-5 flex justify-center">
+        <div class="lg:col-span-5 flex flex-col items-center justify-center gap-3">
           <div class="hero-portrait-circle group relative cursor-pointer" id="portraitUploadTrigger" title="Click to upload/change with your real photo">
             <img id="heroPortraitImg" src="assets/developer-portrait.svg" alt="Gurrala Lakshmi Chandrakala Reddy" class="hero-portrait-img" />
             <input type="file" id="portraitFileInput" accept="image/*" class="hidden" />
@@ -217,6 +217,9 @@
               <span>Click to upload your personal photo</span>
             </div>
           </div>
+          <button id="resetPortraitBtn" class="hidden text-[11px] font-mono text-zinc-500 hover:text-orange-500 underline transition cursor-pointer">
+            Reset to default avatar
+          </button>
         </div>
 
       </div>
