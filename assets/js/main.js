@@ -16,8 +16,32 @@ document.addEventListener('DOMContentLoaded', () => {
   initMobileMenu();
   initComponentSandbox();
   initFaqAccordion();
-  initPhotoUpload();
+  initAvatar();
 });
+
+function initAvatar() {
+  const saved = localStorage.getItem('lk_avatar_img');
+  if (saved) {
+    const img = document.getElementById('heroAvatarImg');
+    if (img) img.src = saved;
+  }
+}
+
+window.handleAvatarUpload = function(e) {
+  const file = e.target.files?.[0];
+  if (file) {
+    const reader = new FileReader();
+    reader.onload = () => {
+      const result = reader.result;
+      const img = document.getElementById('heroAvatarImg');
+      if (img) img.src = result;
+      localStorage.setItem('lk_avatar_img', result);
+      showToast('Profile photo updated successfully!', 'success');
+      if (window.soundFX) window.soundFX.playSuccess();
+    };
+    reader.readAsDataURL(file);
+  }
+};
 
 /* ==========================================================================
    1. HERO CONSTELLATION CANVAS
@@ -912,48 +936,4 @@ function showToast(message, type = 'info') {
     toast.classList.remove('show');
     setTimeout(() => toast.remove(), 350);
   }, 3500);
-}
-
-/* ==========================================================================
-   14. DEVELOPER PORTRAIT PHOTO UPLOAD & PERSISTENCE
-   ========================================================================== */
-function initPhotoUpload() {
-  const trigger = document.getElementById('portraitUploadTrigger');
-  const fileInput = document.getElementById('portraitFileInput');
-  const portraitImg = document.getElementById('heroPortraitImg');
-
-  if (!trigger || !fileInput || !portraitImg) return;
-
-  // Restore saved photo from localStorage if present
-  const savedPhoto = localStorage.getItem('lk_avatar_img');
-  if (savedPhoto) {
-    portraitImg.src = savedPhoto;
-  }
-
-  trigger.addEventListener('click', () => {
-    fileInput.click();
-  });
-
-  fileInput.addEventListener('change', (e) => {
-    const file = e.target.files[0];
-    if (!file) return;
-
-    if (!file.type.startsWith('image/')) {
-      showToast('Please select a valid image file (JPG, PNG, WebP).', 'error');
-      return;
-    }
-
-    const reader = new FileReader();
-    reader.onload = (event) => {
-      const dataUrl = event.target.result;
-      portraitImg.src = dataUrl;
-      try {
-        localStorage.setItem('lk_avatar_img', dataUrl);
-        showToast('Profile photo updated successfully!', 'success');
-      } catch (err) {
-        showToast('Photo displayed for this session.', 'info');
-      }
-    };
-    reader.readAsDataURL(file);
-  });
 }
