@@ -104,6 +104,70 @@ export const Hero: React.FC<HeroProps> = ({ onOpenResume, onContactClick }) => {
             </p>
           </div>
 
+          {/* 5 Circular Social & Profile Buttons (Figma Layout) */}
+          <div className="flex items-center gap-3 pt-1">
+            {/* Circle 1: LinkedIn */}
+            <a 
+              href="https://linkedin.com/in/lakshmi-chandrakala-gurrala-710909255" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="social-icon-btn group"
+              title="LinkedIn Profile"
+              onClick={() => playSfx('click')}
+            >
+              <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24" aria-label="LinkedIn">
+                <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 8.76a1.53 1.53 0 0 0 1.54-1.53c0-.85-.69-1.54-1.54-1.54a1.54 1.54 0 0 0-1.53 1.54c0 .84.69 1.53 1.53 1.53m1.4 9.74v-8.37H5.06v8.37z" />
+              </svg>
+            </a>
+
+            {/* Circle 2: GitHub */}
+            <a 
+              href="https://github.com/ammureddy743" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="social-icon-btn group"
+              title="GitHub Repositories"
+              onClick={() => playSfx('click')}
+            >
+              <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24" aria-label="GitHub">
+                <path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z" />
+              </svg>
+            </a>
+
+            {/* Circle 3: LeetCode */}
+            <a 
+              href="https://leetcode.com/u/X2UeLl2I3Y/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="social-icon-btn group"
+              title="LeetCode Profile"
+              onClick={() => playSfx('click')}
+            >
+              <Code2 className="w-5 h-5" />
+            </a>
+
+            {/* Circle 4: HackerRank */}
+            <a 
+              href="https://hackerrank.com/profile/gurralaammureddy" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="social-icon-btn group"
+              title="HackerRank Profile"
+              onClick={() => playSfx('click')}
+            >
+              <Award className="w-5 h-5" />
+            </a>
+
+            {/* Circle 5: Direct Mail */}
+            <button 
+              onClick={() => { playSfx('click'); onContactClick(); }}
+              className="social-icon-btn group"
+              title="Direct Email / Contact"
+            >
+              <Mail className="w-5 h-5" />
+            </button>
+          </div>
+
           {/* Action Buttons */}
           <div className="flex flex-wrap items-center gap-4 pt-2">
             <a 
@@ -129,53 +193,6 @@ export const Hero: React.FC<HeroProps> = ({ onOpenResume, onContactClick }) => {
             >
               <span>View Resume</span>
             </button>
-          </div>
-
-          {/* Social Icons Bar */}
-          <div className="pt-4 flex items-center gap-4 text-xs font-mono text-zinc-400">
-            <span>Connect:</span>
-            <div className="flex items-center gap-2">
-              <a 
-                href="https://linkedin.com/in/lakshmi-chandrakala-gurrala-710909255" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="p-2 rounded-lg bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-orange-500 hover:border-orange-500 transition flex items-center justify-center"
-                title="LinkedIn Profile"
-              >
-                <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
-                  <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 8.76a1.53 1.53 0 0 0 1.54-1.53c0-.85-.69-1.54-1.54-1.54a1.54 1.54 0 0 0-1.53 1.54c0 .84.69 1.53 1.53 1.53m1.4 9.74v-8.37H5.06v8.37z"/>
-                </svg>
-              </a>
-              <a 
-                href="https://github.com/ammureddy743" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="p-2 rounded-lg bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-orange-500 hover:border-orange-500 transition flex items-center justify-center"
-                title="GitHub Repositories"
-              >
-                <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
-                  <path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/>
-                </svg>
-              </a>
-              <a 
-                href="https://leetcode.com/u/X2UeLl2I3Y/" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="p-2 rounded-lg bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-orange-500 hover:border-orange-500 transition"
-                title="LeetCode Profile"
-              >
-                <Code2 className="w-4 h-4" />
-              </a>
-              <a 
-                href="https://hackerrank.com/profile/gurralaammureddy" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="p-2 rounded-lg bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-orange-500 hover:border-orange-500 transition"
-                title="HackerRank Profile"
-              >
-                <Award className="w-4 h-4" />
-              </a>
-            </div>
           </div>
 
         </div>

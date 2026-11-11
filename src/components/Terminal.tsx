@@ -335,3 +335,4 @@ export const Terminal: React.FC = () => {
     </section>
   );
 };
+

@@ -126,3 +126,4 @@ export const HeroCanvas: React.FC = () => {
 
   return <canvas id="heroCanvas" ref={canvasRef} />;
 };
+

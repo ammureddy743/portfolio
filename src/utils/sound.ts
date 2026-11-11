@@ -43,3 +43,4 @@ export const playSfx = (type: 'click' | 'keypress' | 'success') => {
     setTimeout(() => playTone(659, 'sine', 0.15, 0.1), 80);
   }
 };
+

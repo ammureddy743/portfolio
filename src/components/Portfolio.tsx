@@ -208,3 +208,4 @@ export const Portfolio: React.FC<PortfolioProps> = ({ onOpenProject }) => {
     </section>
   );
 };
+

@@ -58,3 +58,4 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
     </div>
   );
 };
+
