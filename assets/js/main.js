@@ -680,7 +680,34 @@ function initContactForm() {
       console.warn('LocalStorage save failed:', e);
     }
 
-    // Try live Node.js / Express backend API (local port 5000 or same-origin /api/contact)
+    // 1. Send direct email to gurralaammureddy@gmail.com via FormSubmit AJAX
+    let emailSent = false;
+    try {
+      const emailRes = await fetch('https://formsubmit.co/ajax/gurralaammureddy@gmail.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          name: name,
+          email: email,
+          _subject: `🚀 Portfolio Inquiry from ${name}: ${subject}`,
+          subject: subject,
+          message: message,
+          _template: 'table',
+          _captcha: 'false'
+        })
+      });
+      const emailData = await emailRes.json();
+      if (emailData && (emailData.success === 'true' || emailData.success === true || emailData.message)) {
+        emailSent = true;
+      }
+    } catch (e) {
+      console.warn('FormSubmit email dispatch fallback:', e);
+    }
+
+    // 2. Also try live Node.js / Express backend API if running
     let apiSuccess = false;
     const apiEndpoints = [
       '/api/contact',
@@ -695,8 +722,6 @@ function initContactForm() {
           body: JSON.stringify(payload)
         });
         if (response.ok) {
-          const data = await response.json();
-          console.log('Backend response:', data);
           apiSuccess = true;
           break;
         }
@@ -715,7 +740,9 @@ function initContactForm() {
 
     if (window.playSfx) window.playSfx('success');
 
-    if (apiSuccess) {
+    if (emailSent) {
+      showToast(`Thank you, ${name}! Your inquiry was sent directly to Lakshmi's email inbox.`, 'success');
+    } else if (apiSuccess) {
       showToast(`Thank you, ${name}! Your inquiry was delivered to the backend server.`, 'success');
     } else {
       showToast(`Thank you, ${name}! Your message has been received by Lakshmi.`, 'success');
