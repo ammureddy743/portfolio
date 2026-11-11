@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lakshmi Chandrakala | Frontend & Mobile Developer | Portfolio</title>
+  
+  <meta name="description" content="Portfolio of Gurrala Lakshmi Chandrakala Reddy - Frontend Developer & Mobile App Engineer. 7 months experience at The Team C, ServiceNow CSA certified." />
+  <meta name="keywords" content="Lakshmi Chandrakala, Frontend Developer, React.js, React Native, TypeScript, ServiceNow CSA, Hyderabad, Portfolio" />
+  <meta name="author" content="Gurrala Lakshmi Chandrakala Reddy" />
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Lakshmi Chandrakala | Frontend & Mobile Developer" />
+  <meta property="og:description" content="Explore my portfolio, projects, skills, and experience in React.js, React Native, and ServiceNow administration." />
+  <meta property="og:type" content="website" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            orange: {
+              500: '#ff6b00',
+              600: '#ea580c',
+              700: '#c2410c'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Canvas Confetti -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+
+  <!-- Custom CSS (Figma Design Language) -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body class="selection:bg-orange-500 selection:text-white">
+
+  <!-- Background Ambient Glow Orbs (Original First Background) -->
+  <div class="bg-mesh">
+    <div class="mesh-orb-1"></div>
+    <div class="mesh-orb-2"></div>
+    <div class="mesh-orb-3"></div>
+  </div>
+
+  <!-- Main Figma Artboard Container Frame -->
+  <div class="figma-app-container">
+    
+    <!-- ==========================================================================
+         NAVIGATION BAR (MATCHING FIGMA TEMPLATE)
+         ========================================================================== -->
+    <header class="figma-nav" id="mainNav">
+      
+      <!-- Logo: Orange Bold Typography -->
+      <a href="#home" class="flex items-center gap-2 group text-decoration-none">
+        <span class="text-2xl font-black tracking-tight text-white group-hover:text-orange-500 transition-colors">
+          LAKSHMI<span class="text-orange-500">.</span>
+        </span>
+      </a>
+
+      <!-- Desktop Nav Links (Home, Services, About me, Portfolio, Contact me) -->
+      <nav class="hidden md:flex items-center gap-8">
+        <a href="#home" class="nav-link active">Home</a>
+        <a href="#services" class="nav-link">Services</a>
+        <a href="#about" class="nav-link">About me</a>
+        <a href="#portfolio" class="nav-link">Portfolio</a>
+        <a href="#sandbox" class="nav-link">Sandbox</a>
+        <a href="#terminal" class="nav-link">Terminal</a>
+        <a href="#contact" class="nav-link">Contact me</a>
+      </nav>
+
+      <!-- Right Controls: Audio, Theme & Orange 'Hire Me' CTA -->
+      <div class="hidden sm:flex items-center gap-3">
+        <button id="soundToggleBtn" class="p-2.5 rounded-xl bg-zinc-800/60 hover:bg-zinc-700/80 border border-zinc-700/60 text-zinc-400 hover:text-white transition" title="Toggle Audio Feedback">
+          <i data-lucide="volume-2" class="w-4 h-4"></i>
+        </button>
+        
+        <button id="themeToggleBtn" class="p-2.5 rounded-xl bg-zinc-800/60 hover:bg-zinc-700/80 border border-zinc-700/60 text-zinc-400 hover:text-white transition" title="Toggle Light/Dark Theme">
+          <i data-lucide="sun" class="w-4 h-4"></i>
+        </button>
+
+        <button id="sharePortfolioBtn" class="p-2.5 rounded-xl bg-zinc-800/60 hover:bg-zinc-700/80 border border-zinc-700/60 text-zinc-400 hover:text-white transition" title="Share Portfolio Link">
+          <i data-lucide="share-2" class="w-4 h-4"></i>
+        </button>
+
+        <a href="#contact" class="btn-orange text-xs py-2.5 px-5">
+          <span>Hire Me</span>
+        </a>
+      </div>
+
+      <!-- Mobile Hamburger Button -->
+      <button id="mobileMenuBtn" class="md:hidden p-2 rounded-lg bg-zinc-800 text-zinc-300 hover:text-white">
+        <i data-lucide="menu" class="w-6 h-6"></i>
+      </button>
+    </header>
+
+    <!-- Mobile Dropdown -->
+    <div id="mobileMenu" class="hidden md:hidden bg-zinc-950/95 border-b border-zinc-800 px-6 py-5 space-y-3">
+      <a href="#home" class="block py-2 text-zinc-300 hover:text-orange-500 font-semibold">Home</a>
+      <a href="#services" class="block py-2 text-zinc-300 hover:text-orange-500 font-semibold">Services</a>
+      <a href="#about" class="block py-2 text-zinc-300 hover:text-orange-500 font-semibold">About me</a>
+      <a href="#portfolio" class="block py-2 text-zinc-300 hover:text-orange-500 font-semibold">Portfolio</a>
+      <a href="#sandbox" class="block py-2 text-zinc-300 hover:text-orange-500 font-semibold">Sandbox</a>
+      <a href="#terminal" class="block py-2 text-zinc-300 hover:text-orange-500 font-semibold">Terminal</a>
+      <a href="#contact" class="block py-2 text-zinc-300 hover:text-orange-500 font-semibold">Contact me</a>
+      <div class="pt-3 border-t border-zinc-800 flex items-center justify-between">
+        <button class="open-resume-modal btn-outline text-xs py-2 px-3">Resume PDF</button>
+        <a href="#contact" class="btn-orange text-xs py-2 px-4">Hire Me</a>
+      </div>
+    </div>
+
+    <!-- ==========================================================================
+         HERO SECTION (MATCHING FIGMA TEMPLATE HERO LAYOUT)
+         ========================================================================== -->
+    <section id="home" class="relative px-6 sm:px-10 lg:px-16 pt-12 pb-20 border-b border-zinc-800/60 overflow-hidden">
+      <!-- Interactive Constellation Canvas from First Background -->
+      <canvas id="heroCanvas"></canvas>
+
+      <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Left Column: Hi I am, Name, Big Orange Title, Socials, Dual Buttons, Stats -->
+        <div class="lg:col-span-7 space-y-7">
+          
+          <div class="space-y-1">
+            <span class="text-zinc-400 text-lg font-medium tracking-wide block">Hi I am</span>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+              Gurrala Lakshmi Chandrakala Reddy
+            </h2>
+          </div>
+
+          <!-- Big Title in Vibrant Orange (Matching Figma: "UI/UX designer") -->
+          <div class="space-y-2">
+            <h1 class="text-4xl sm:text-6xl font-black text-orange-500 tracking-tight leading-none">
+              Frontend Developer
+            </h1>
+            <div class="flex items-center gap-2 text-zinc-400 text-sm font-mono pt-1">
+              <span class="text-orange-500 font-bold">&gt;</span>
+              <span id="typewriterText" class="border-r-2 border-orange-500 pr-1 animate-pulse">React.js • React Native • ServiceNow CSA</span>
+            </div>
+          </div>
+
+          <!-- Circular Social Icon Pills (Instagram, LinkedIn, Dribbble, GitHub) -->
+          <div class="flex items-center gap-3 pt-1">
+            <a href="https://linkedin.com/in/lakshmi-chandrakala-gurrala-710909255" target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="LinkedIn Profile">
+              <i data-lucide="linkedin" class="w-5 h-5"></i>
+            </a>
+            <a href="https://github.com/ammureddy743" target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="GitHub Repositories">
+              <i data-lucide="github" class="w-5 h-5"></i>
+            </a>
+            <a href="https://leetcode.com/u/X2UeLl2I3Y/" target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="LeetCode Profile">
+              <i data-lucide="code" class="w-5 h-5"></i>
+            </a>
+            <a href="https://hackerrank.com/profile/gurralaammureddy" target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="HackerRank Profile">
+              <i data-lucide="award" class="w-5 h-5"></i>
+            </a>
+            <button data-copy="gurralaammureddy@gmail.com" class="social-icon-btn" title="Copy Direct Email">
+              <i data-lucide="mail" class="w-5 h-5"></i>
+            </button>
+          </div>
+
+          <!-- Dual Buttons: Solid Orange "Hire Me" + Outline "Download CV" -->
+          <div class="flex flex-wrap items-center gap-4 pt-2">
+            <a href="#contact" class="btn-orange">
+              <span>Hire Me</span>
+            </a>
+
+            <a href="assets/Lakshmi_Chandrakala_Resume.pdf" download class="btn-outline">
+              <i data-lucide="download" class="w-4 h-4"></i>
+              <span>Download CV</span>
+            </a>
+
+            <button class="open-resume-modal btn-outline text-xs">
+              <i data-lucide="eye" class="w-4 h-4"></i>
+              <span>Preview Resume</span>
+            </button>
+          </div>
+
+          <!-- Horizontal Floating Stats Card (Matching Figma: "5+ Experiences, 20+ Project done, 80+ Happy Clients") -->
+          <div class="hero-stats-card max-w-xl">
+            <div class="space-y-0.5">
+              <div class="text-2xl sm:text-3xl font-black text-orange-500">7+</div>
+              <div class="text-xs sm:text-sm font-medium text-zinc-300">Months Exp.</div>
+              <div class="text-[10px] text-zinc-500 font-mono">The Team C</div>
+            </div>
+
+            <div class="h-10 w-[1px] bg-zinc-800"></div>
+
+            <div class="space-y-0.5">
+              <div class="text-2xl sm:text-3xl font-black text-orange-500">4+</div>
+              <div class="text-xs sm:text-sm font-medium text-zinc-300">Project Done</div>
+              <div class="text-[10px] text-zinc-500 font-mono">Web & Mobile</div>
+            </div>
+
+            <div class="h-10 w-[1px] bg-zinc-800"></div>
+
+            <div class="space-y-0.5">
+              <div class="text-2xl sm:text-3xl font-black text-orange-500">3+</div>
+              <div class="text-xs sm:text-sm font-medium text-zinc-300">Certifications</div>
+              <div class="text-[10px] text-zinc-500 font-mono">ServiceNow CSA</div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right Column: Big Circular Portrait Frame (With Instant Upload Feature) -->
+        <div class="lg:col-span-5 flex flex-col items-center justify-center gap-3">
+          <div class="hero-portrait-circle group relative cursor-pointer" id="portraitUploadTrigger" title="Click to upload/change with your real photo">
+            <img id="heroPortraitImg" src="assets/developer-portrait.svg" alt="Gurrala Lakshmi Chandrakala Reddy" class="hero-portrait-img" />
+            <input type="file" id="portraitFileInput" accept="image/*" class="hidden" />
+            
+            <!-- Hover / Click Badge -->
+            <div class="absolute bottom-5 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity bg-zinc-950/95 border border-orange-500 text-white text-[11px] font-semibold py-1.5 px-3.5 rounded-full shadow-2xl flex items-center gap-1.5 z-20 pointer-events-none whitespace-nowrap">
+              <i data-lucide="camera" class="w-3.5 h-3.5 text-orange-500"></i>
+              <span>Click to upload your personal photo</span>
+            </div>
+          </div>
+          <button id="resetPortraitBtn" class="hidden text-[11px] font-mono text-zinc-500 hover:text-orange-500 underline transition cursor-pointer">
+            Reset to default avatar
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SERVICES SECTION (MATCHING FIGMA "Services" NAV)
+         ========================================================================== -->
+    <section id="services" class="px-6 sm:px-10 lg:px-16 py-20 border-b border-zinc-800/60">
+      
+      <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
+        <span class="text-orange-500 font-bold text-xs uppercase tracking-widest font-mono">What I Deliver</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Services & Core Strengths</h2>
+        <p class="text-zinc-400 text-sm sm:text-base">
+          Proven production capability across web development, mobile app engineering, enterprise ServiceNow configuration, and full-stack software.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <!-- Service 1: Web Development -->
+        <div class="figma-card">
+          <div class="service-icon-box">
+            <i data-lucide="layout" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">Web App Development</h3>
+          <p class="text-zinc-400 text-xs leading-relaxed mb-4">
+            Building responsive, component-driven web portals and SaaS dashboards with React.js, Tailwind CSS, Vite, and modern JavaScript (ES6+).
+          </p>
+          <div class="text-xs font-mono text-orange-500 font-semibold">React.js • Tailwind • Vite</div>
+        </div>
+
+        <!-- Service 2: Mobile App Development -->
+        <div class="figma-card">
+          <div class="service-icon-box">
+            <i data-lucide="smartphone" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">Mobile Engineering</h3>
+          <p class="text-zinc-400 text-xs leading-relaxed mb-4">
+            Cross-platform mobile applications for iOS & Android built using React Native and TypeScript with native 60fps gesture handling.
+          </p>
+          <div class="text-xs font-mono text-orange-500 font-semibold">React Native • TypeScript</div>
+        </div>
+
+        <!-- Service 3: ServiceNow Platform -->
+        <div class="figma-card">
+          <div class="service-icon-box">
+            <i data-lucide="shield-check" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">ServiceNow Admin</h3>
+          <p class="text-zinc-400 text-xs leading-relaxed mb-4">
+            Certified System Administrator (CSA) handling baseline instances, automated catalog items, IT workflows, user roles, and business rules.
+          </p>
+          <div class="text-xs font-mono text-orange-500 font-semibold">Official CSA Certified</div>
+        </div>
+
+        <!-- Service 4: Backend & APIs -->
+        <div class="figma-card">
+          <div class="service-icon-box">
+            <i data-lucide="database" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">Full-Stack & APIs</h3>
+          <p class="text-zinc-400 text-xs leading-relaxed mb-4">
+            Developing clean RESTful APIs with Python Flask, Django, SQLite, and leveraging AI engines (Gemini, Claude, Antigravity) for rapid delivery.
+          </p>
+          <div class="text-xs font-mono text-orange-500 font-semibold">Python • Flask • SQL</div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         ABOUT ME SECTION (MATCHING FIGMA "About me" NAV)
+         ========================================================================== -->
+    <section id="about" class="px-6 sm:px-10 lg:px-16 py-20 border-b border-zinc-800/60">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Left: About Visual / Credential Card -->
+        <div class="lg:col-span-5">
+          <div class="figma-card space-y-6 relative overflow-hidden">
+            <div class="flex items-center gap-4">
+              <div class="w-14 h-14 rounded-2xl bg-orange-500 flex items-center justify-center font-black text-xl text-white shadow-lg shadow-orange-500/30">
+                LC
+              </div>
+              <div>
+                <h3 class="text-xl font-bold text-white">Lakshmi Chandrakala</h3>
+                <p class="text-xs text-orange-500 font-mono font-medium">Frontend & Mobile Engineer</p>
+              </div>
+            </div>
+
+            <div class="info-card-box space-y-2.5 text-xs">
+              <div class="flex justify-between items-center">
+                <span class="info-label">Education:</span>
+                <span class="info-val font-medium">B.Tech in CSE (2022–2026)</span>
+              </div>
+              <div class="flex justify-between items-center">
+                <span class="info-label">College:</span>
+                <span class="info-val font-medium">Sree Vahini Inst. of Sci. &amp; Tech.</span>
+              </div>
+              <div class="flex justify-between items-center">
+                <span class="info-label">CGPA:</span>
+                <span class="info-val-accent font-bold font-mono text-orange-500">7.59 / 10</span>
+              </div>
+              <div class="flex justify-between items-center">
+                <span class="info-label">Location:</span>
+                <span class="info-val">Hyderabad, Telangana</span>
+              </div>
+            </div>
+
+            <div class="space-y-2.5">
+              <span class="text-xs font-mono text-zinc-400 block uppercase font-semibold tracking-wider">Industry Credentials</span>
+              <div class="flex flex-wrap gap-2 text-xs">
+                <span class="info-badge info-badge-orange">ServiceNow CSA</span>
+                <span class="info-badge">HackerRank Python</span>
+                <span class="info-badge">SQL Intermediate</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Story & Progress Bars (Matching Figma About Layout) -->
+        <div class="lg:col-span-7 space-y-6">
+          <div class="space-y-2">
+            <span class="text-orange-500 font-bold text-xs uppercase tracking-widest font-mono">About Me</span>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-white leading-tight">
+              Crafting Clean Code & Intuitive Digital Experiences
+            </h2>
+          </div>
+
+          <p class="text-zinc-300 text-sm sm:text-base leading-relaxed">
+            With <strong class="text-white">7 months of active production experience</strong> at <span class="text-orange-500 font-semibold">The Team C</span>, I specialize in engineering responsive user interfaces for both web portals and cross-platform mobile apps. I merge strong design fidelity with high performance, strict typing, and AI-accelerated workflows.
+          </p>
+
+          <!-- Skill Bars (Matching Figma Template Style) -->
+          <div class="space-y-4 pt-2">
+            
+            <!-- Skill 1 -->
+            <div>
+              <div class="flex justify-between text-xs font-bold mb-1">
+                <span class="text-white">React.js, JavaScript (ES6+) & Vite</span>
+                <span class="text-orange-500 font-mono">92%</span>
+              </div>
+              <div class="skill-bar-container">
+                <div class="skill-bar-fill" style="width: 92%;"></div>
+              </div>
+            </div>
+
+            <!-- Skill 2 -->
+            <div>
+              <div class="flex justify-between text-xs font-bold mb-1">
+                <span class="text-white">React Native & TypeScript (Mobile)</span>
+                <span class="text-orange-500 font-mono">88%</span>
+              </div>
+              <div class="skill-bar-container">
+                <div class="skill-bar-fill" style="width: 88%;"></div>
+              </div>
+            </div>
+
+            <!-- Skill 3 -->
+            <div>
+              <div class="flex justify-between text-xs font-bold mb-1">
+                <span class="text-white">Tailwind CSS & Responsive Layouts</span>
+                <span class="text-orange-500 font-mono">95%</span>
+              </div>
+              <div class="skill-bar-container">
+                <div class="skill-bar-fill" style="width: 95%;"></div>
+              </div>
+            </div>
+
+            <!-- Skill 4 -->
+            <div>
+              <div class="flex justify-between text-xs font-bold mb-1">
+                <span class="text-white">ServiceNow Certified Administration (CSA)</span>
+                <span class="text-orange-500 font-mono">90%</span>
+              </div>
+              <div class="skill-bar-container">
+                <div class="skill-bar-fill" style="width: 90%;"></div>
+              </div>
+            </div>
+
+            <!-- Skill 5 -->
+            <div>
+              <div class="flex justify-between text-xs font-bold mb-1">
+                <span class="text-white">Python, Flask & SQL Database Foundations</span>
+                <span class="text-orange-500 font-mono">85%</span>
+              </div>
+              <div class="skill-bar-container">
+                <div class="skill-bar-fill" style="width: 85%;"></div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="pt-2">
+            <a href="https://wa.me/918919008619" target="_blank" rel="noopener noreferrer" class="btn-orange text-xs inline-flex items-center gap-2">
+              <svg class="w-4 h-4 flex-shrink-0 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86.173.086.275.072.376-.044.101-.116.433-.506.549-.68.116-.173.231-.145.39-.086s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.099.824zm-3.394-10.416c-5.523 0-10 4.477-10 10 0 1.769.459 3.432 1.263 4.885l-1.341 4.9 5.02-1.316c1.403.766 3.007 1.198 4.714 1.198 5.523 0 10-4.477 10-10s-4.477-10-10-10z"/>
+              </svg>
+              <span>Quick Chat on WhatsApp (+91 8919008619)</span>
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         PORTFOLIO SECTION (MATCHING FIGMA "Portfolio" NAV & FILTERS)
+         ========================================================================== -->
+    <section id="portfolio" class="px-6 sm:px-10 lg:px-16 py-20 border-b border-zinc-800/60">
+      
+      <div class="text-center max-w-2xl mx-auto mb-12 space-y-3">
+        <span class="text-orange-500 font-bold text-xs uppercase tracking-widest font-mono">Recent Work</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Portfolio Showcase</h2>
+        <p class="text-zinc-400 text-sm sm:text-base">
+          Selected production deliverables and full-stack software applications. Click any card to launch interactive preview simulator.
+        </p>
+
+        <!-- Figma Filter Tabs -->
+        <div class="flex items-center justify-center gap-2 pt-4 flex-wrap">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="web">Web Apps</button>
+          <button class="filter-btn" data-filter="mobile">Mobile Apps</button>
+          <button class="filter-btn" data-filter="fullstack">Full-Stack / AI</button>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        
+        <!-- PROJECT 1: Team Connect Website -->
+        <div class="project-card figma-card space-y-5" data-category="web all">
+          <div class="flex items-center justify-between pb-3 border-b border-zinc-800">
+            <div class="flex items-center gap-2">
+              <span class="terminal-dot dot-red"></span>
+              <span class="terminal-dot dot-yellow"></span>
+              <span class="terminal-dot dot-green"></span>
+              <span class="text-xs font-mono text-zinc-400 ml-2">teamconnect.web</span>
+            </div>
+            <span class="px-2.5 py-1 rounded bg-orange-500/10 text-orange-400 text-xs font-bold">The Team C</span>
+          </div>
+
+          <div>
+            <span class="text-xs font-mono text-orange-500 font-semibold uppercase">Flagship Web Application</span>
+            <h3 class="text-2xl font-bold text-white mt-1">Team Connect Website</h3>
+          </div>
+
+          <p class="text-zinc-400 text-sm leading-relaxed">
+            Contributed to frontend development for the Team Connect web application. Engineered responsive interfaces, reusable UI component hierarchies, and layout improvements with React.js, Tailwind CSS, and Vite.
+          </p>
+
+          <div class="flex flex-wrap gap-2 text-xs">
+            <span class="px-2.5 py-1 rounded bg-zinc-800 text-zinc-300 font-medium">React.js</span>
+            <span class="px-2.5 py-1 rounded bg-zinc-800 text-zinc-300 font-medium">Tailwind CSS</span>
+            <span class="px-2.5 py-1 rounded bg-zinc-800 text-zinc-300 font-medium">Vite</span>
+            <span class="px-2.5 py-1 rounded bg-zinc-800 text-zinc-300 font-medium">Responsive Layouts</span>
+          </div>
+
+          <div class="pt-4 border-t border-zinc-800 flex items-center justify-between">
+            <button class="open-project-modal btn-orange text-xs py-2 px-4" data-project-id="team-connect-web">
+              <i data-lucide="maximize-2" class="w-3.5 h-3.5"></i>
+              <span>Interactive Deep Dive</span>
+            </button>
+            <span class="text-xs font-mono text-zinc-500">7 Mos Production</span>
+          </div>
+        </div>
+
+        <!-- PROJECT 2: Team Connect Mobile App -->
+        <div class="project-card figma-card space-y-5" data-category="mobile all">
+          <div class="flex items-center justify-between pb-3 border-b border-zinc-800">
+            <div class="flex items-center gap-2">
+              <span class="terminal-dot dot-red"></span>
+              <span class="terminal-dot dot-yellow"></span>
+              <span class="terminal-dot dot-green"></span>
+              <span class="text-xs font-mono text-zinc-400 ml-2">teamconnect.mobile</span>
+            </div>
+            <span class="px-2.5 py-1 rounded bg-orange-500/10 text-orange-400 text-xs font-bold">The Team C</span>
+          </div>
+
+          <div>
+            <span class="text-xs font-mono text-orange-500 font-semibold uppercase">Cross-Platform Native App</span>
+            <h3 class="text-2xl font-bold text-white mt-1">Team Connect Mobile</h3>
+          </div>
+
+          <p class="text-zinc-400 text-sm leading-relaxed">
+            Contributed to mobile application UI development for iOS & Android using React Native and TypeScript. Built gesture-friendly components, modular screens, and optimized mobile usability.
+          </p>
+
+          <div class="flex flex-wrap gap-2 text-xs">
+            <span class="px-2.5 py-1 rounded bg-zinc-800 text-zinc-300 font-medium">React Native</span>
+            <span class="px-2.5 py-1 rounded bg-zinc-800 text-zinc-300 font-medium">TypeScript</span>
+            <span class="px-2.5 py-1 rounded bg-zinc-800 text-zinc-300 font-medium">Mobile Gestures</span>
+            <span class="px-2.5 py-1 rounded bg-zinc-800 text-zinc-300 font-medium">Cross-Platform</span>
+          </div>
+
+          <div class="pt-4 border-t border-zinc-800 flex items-center justify-between">
+            <button class="open-project-modal btn-orange text-xs py-2 px-4" data-project-id="team-connect-mobile">
+              <i data-lucide="smartphone" class="w-3.5 h-3.5"></i>
+              <span>Mobile Simulator</span>
+            </button>
+            <span class="text-xs font-mono text-zinc-500">iOS & Android</span>
+          </div>
+        </div>
+
+        <!-- PROJECT 3: FitTrack Health Platform -->
+        <div class="project-card figma-card space-y-5" data-category="web fullstack all">
+          <div class="flex items-center justify-between pb-3 border-b border-zinc-800">
+            <div class="flex items-center gap-2">
+              <span class="terminal-dot dot-red"></span>
+              <span class="terminal-dot dot-yellow"></span>
+              <span class="terminal-dot dot-green"></span>
+              <span class="text-xs font-mono text-zinc-400 ml-2">fittrack.io</span>
+            </div>
+            <span class="px-2.5 py-1 rounded bg-emerald-500/10 text-emerald-400 text-xs font-bold">Full-Stack</span>
+          </div>
+
+          <div>
+            <span class="text-xs font-mono text-orange-500 font-semibold uppercase">Fitness Tracking Web App</span>
+            <h3 class="text-2xl font-bold text-white mt-1">FitTrack Health Ecosystem</h3>
+          </div>
+
+          <p class="text-zinc-400 text-sm leading-relaxed">
+            Full-stack wellness application built with React.js frontend and Python Flask REST APIs. Includes dynamic workout logging, calorie targets, and interactive analytics.
+          </p>
+
+          <div class="flex flex-wrap gap-2 text-xs">
+            <span class="px-2.5 py-1 rounded bg-zinc-800 text-zinc-300 font-medium">Python</span>
+            <span class="px-2.5 py-1 rounded bg-zinc-800 text-zinc-300 font-medium">Flask</span>
+            <span class="px-2.5 py-1 rounded bg-zinc-800 text-zinc-300 font-medium">React.js</span>
+            <span class="px-2.5 py-1 rounded bg-zinc-800 text-zinc-300 font-medium">REST APIs</span>
+          </div>
+
+          <div class="pt-4 border-t border-zinc-800 flex items-center justify-between">
+            <button class="open-project-modal btn-orange text-xs py-2 px-4" data-project-id="fittrack-platform">
+              <i data-lucide="activity" class="w-3.5 h-3.5"></i>
+              <span>Try Hydration Calculator</span>
+            </button>
+            <span class="text-xs font-mono text-zinc-500">Full-Stack App</span>
+          </div>
+        </div>
+
+        <!-- PROJECT 4: QTrans Translation Engine -->
+        <div class="project-card figma-card space-y-5" data-category="fullstack all">
+          <div class="flex items-center justify-between pb-3 border-b border-zinc-800">
+            <div class="flex items-center gap-2">
+              <span class="terminal-dot dot-red"></span>
+              <span class="terminal-dot dot-yellow"></span>
+              <span class="terminal-dot dot-green"></span>
+              <span class="text-xs font-mono text-zinc-400 ml-2">qtrans.engine</span>
+            </div>
+            <span class="px-2.5 py-1 rounded bg-purple-500/10 text-purple-400 text-xs font-bold">NLP Engine</span>
+          </div>
+
+          <div>
+            <span class="text-xs font-mono text-orange-500 font-semibold uppercase">Academic Translation Tool</span>
+            <h3 class="text-2xl font-bold text-white mt-1">QTrans Question Translator</h3>
+          </div>
+
+          <p class="text-zinc-400 text-sm leading-relaxed">
+            Translates institutional examination question papers into multiple regional languages using Python, Django, SQLite, and NLP translation engines while preserving academic formatting.
+          </p>
+
+          <div class="flex flex-wrap gap-2 text-xs">
+            <span class="px-2.5 py-1 rounded bg-zinc-800 text-zinc-300 font-medium">Python</span>
+            <span class="px-2.5 py-1 rounded bg-zinc-800 text-zinc-300 font-medium">Django</span>
+            <span class="px-2.5 py-1 rounded bg-zinc-800 text-zinc-300 font-medium">SQLite</span>
+            <span class="px-2.5 py-1 rounded bg-zinc-800 text-zinc-300 font-medium">NLP Libraries</span>
+          </div>
+
+          <div class="pt-4 border-t border-zinc-800 flex items-center justify-between">
+            <button class="open-project-modal btn-orange text-xs py-2 px-4" data-project-id="qtrans-translation">
+              <i data-lucide="languages" class="w-3.5 h-3.5"></i>
+              <span>Test Live Translator</span>
+            </button>
+            <span class="text-xs font-mono text-zinc-500">Academic Project</span>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ==========================================================================
+         INTERACTIVE UI SANDBOX SECTION
+         ========================================================================== -->
+    <section id="sandbox" class="px-6 sm:px-10 lg:px-16 py-20 border-b border-zinc-800/60">
+      
+      <div class="text-center max-w-2xl mx-auto mb-12 space-y-3">
+        <span class="text-orange-500 font-bold text-xs uppercase tracking-widest font-mono">Live Coding Playground</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Interactive React UI Sandbox</h2>
+        <p class="text-zinc-400 text-sm sm:text-base">
+          Test interactive React state management in real time, or inspect the clean TypeScript component architecture behind it.
+        </p>
+
+        <!-- View Switcher -->
+        <div class="sandbox-tabs max-w-xs mx-auto mt-6">
+          <button id="tabLiveDemoBtn" class="sandbox-tab-btn active">
+            <i data-lucide="play" class="w-3.5 h-3.5"></i>
+            <span>Live Interactive Demo</span>
+          </button>
+          <button id="tabSourceCodeBtn" class="sandbox-tab-btn">
+            <i data-lucide="code-2" class="w-3.5 h-3.5"></i>
+            <span>React Source Code</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="figma-card max-w-4xl mx-auto p-0 overflow-hidden">
+        
+        <div class="p-4 bg-zinc-900 border-b border-zinc-800 flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <span class="terminal-dot dot-red"></span>
+            <span class="terminal-dot dot-yellow"></span>
+            <span class="terminal-dot dot-green"></span>
+            <span class="text-xs font-mono text-zinc-400 ml-2">TeamConnectTaskManager.tsx</span>
+          </div>
+          <span id="sandboxActiveCount" class="text-xs font-mono text-orange-400 bg-orange-500/10 border border-orange-500/30 px-2.5 py-0.5 rounded-full">
+            2 active tasks remaining
+          </span>
+        </div>
+
+        <!-- Live View -->
+        <div id="sandboxViewLive" class="p-6 sm:p-8 space-y-6">
+          
+          <div class="flex flex-wrap items-center justify-between gap-3 pb-4 border-b border-zinc-800">
+            <div class="flex items-center gap-2 flex-wrap">
+              <span class="text-xs font-mono text-zinc-500 mr-1">Filter:</span>
+              <button class="sandbox-filter-btn px-3 py-1 rounded-lg text-xs font-bold text-white bg-orange-500 transition" data-sandbox-filter="all">All</button>
+              <button class="sandbox-filter-btn px-3 py-1 rounded-lg text-xs font-medium text-zinc-400 hover:text-white bg-zinc-800 transition" data-sandbox-filter="frontend">Frontend</button>
+              <button class="sandbox-filter-btn px-3 py-1 rounded-lg text-xs font-medium text-zinc-400 hover:text-white bg-zinc-800 transition" data-sandbox-filter="mobile">Mobile</button>
+              <button class="sandbox-filter-btn px-3 py-1 rounded-lg text-xs font-medium text-zinc-400 hover:text-white bg-zinc-800 transition" data-sandbox-filter="servicenow">ServiceNow</button>
+            </div>
+            <span class="text-xs text-zinc-500 font-mono">Toggle checkmarks to update state</span>
+          </div>
+
+          <div id="sandboxTaskList" class="space-y-2.5 min-h-[200px]"></div>
+
+          <div class="pt-4 border-t border-zinc-800 flex flex-col sm:flex-row items-center gap-3">
+            <input type="text" id="sandboxTaskInput" placeholder="Add a new component or task..." class="flex-1 bg-zinc-950 border border-zinc-800 focus:border-orange-500 rounded-xl px-4 py-2.5 text-xs sm:text-sm text-white placeholder-zinc-500 outline-none transition w-full" />
+            
+            <div class="flex items-center gap-2 w-full sm:w-auto">
+              <select id="sandboxTagSelect" class="bg-zinc-950 border border-zinc-800 rounded-xl px-3 py-2.5 text-xs text-zinc-300 outline-none focus:border-orange-500">
+                <option value="frontend">Frontend</option>
+                <option value="mobile">Mobile</option>
+                <option value="servicenow">ServiceNow</option>
+              </select>
+
+              <button id="sandboxAddTaskBtn" class="btn-orange text-xs py-2.5 px-4 shrink-0 flex items-center gap-1.5">
+                <i data-lucide="plus" class="w-3.5 h-3.5"></i>
+                <span>Add Task</span>
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Code View -->
+        <div id="sandboxViewCode" class="hidden p-6 sm:p-8">
+          <div class="bg-zinc-950 p-4 rounded-xl border border-zinc-800 text-xs font-mono text-zinc-300 overflow-x-auto">
+            <pre><code><span class="text-orange-500">import</span> React, { useState, useMemo } <span class="text-orange-500">from</span> <span class="text-emerald-400">'react'</span>;
+
+<span class="text-orange-500">interface</span> <span class="text-amber-300">TaskItem</span> {
+  id: <span class="text-amber-400">number</span>;
+  text: <span class="text-amber-400">string</span>;
+  tag: <span class="text-emerald-400">'frontend'</span> | <span class="text-emerald-400">'mobile'</span> | <span class="text-emerald-400">'servicenow'</span>;
+  completed: <span class="text-amber-400">boolean</span>;
+}
+
+<span class="text-orange-500">export const</span> <span class="text-white font-bold">TeamConnectTaskManager</span>: React.FC = () =&gt; {
+  <span class="text-zinc-500">// Component state</span>
+  <span class="text-orange-500">const</span> [tasks, setTasks] = useState&lt;TaskItem[]&gt;([
+    { id: 1, text: <span class="text-emerald-400">'Architect reusable Button & Modal UI components'</span>, tag: <span class="text-emerald-400">'frontend'</span>, completed: <span class="text-amber-400">true</span> },
+    { id: 2, text: <span class="text-emerald-400">'Optimize FlatList render performance in React Native'</span>, tag: <span class="text-emerald-400">'mobile'</span>, completed: <span class="text-amber-400">true</span> }
+  ]);
+  <span class="text-orange-500">const</span> [filter, setFilter] = useState&lt;<span class="text-amber-400">string</span>&gt;(<span class="text-emerald-400">'all'</span>);
+
+  <span class="text-orange-500">const</span> filteredTasks = useMemo(() =&gt; {
+    <span class="text-orange-500">return</span> filter === <span class="text-emerald-400">'all'</span> ? tasks : tasks.filter(t =&gt; t.tag === filter);
+  }, [tasks, filter]);
+
+  <span class="text-orange-500">return</span> (
+    &lt;<span class="text-orange-400">div</span> <span class="text-zinc-400">className</span>=<span class="text-emerald-400">"p-6 rounded-2xl bg-zinc-900 border border-zinc-800"</span>&gt;
+      {filteredTasks.map(task =&gt; (
+        &lt;<span class="text-orange-400">TaskRow</span> <span class="text-zinc-400">key</span>={task.id} <span class="text-zinc-400">task</span>={task} /&gt;
+      ))}
+    &lt;/<span class="text-orange-400">div</span>&gt;
+  );
+};</code></pre>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ==========================================================================
+         INTERACTIVE TERMINAL SECTION
+         ========================================================================== -->
+    <section id="terminal" class="px-6 sm:px-10 lg:px-16 py-20 border-b border-zinc-800/60">
+      
+      <div class="text-center max-w-2xl mx-auto mb-10 space-y-2">
+        <span class="text-orange-500 font-bold text-xs uppercase tracking-widest font-mono">&lt;LakshmiTerm /&gt;</span>
+        <h2 class="text-3xl font-extrabold text-white">Developer Console Mode</h2>
+        <p class="text-zinc-400 text-sm">
+          Click the chips below or type commands directly into the terminal.
+        </p>
+      </div>
+
+      <div class="terminal-window max-w-4xl mx-auto">
+        
+        <div class="terminal-header">
+          <div class="terminal-dots">
+            <span class="terminal-dot dot-red"></span>
+            <span class="terminal-dot dot-yellow"></span>
+            <span class="terminal-dot dot-green"></span>
+          </div>
+          <span class="text-xs font-mono text-zinc-400">lakshmi@portfolio: ~ (zsh)</span>
+          <span class="text-xs font-mono text-orange-500">READY</span>
+        </div>
+
+        <div class="p-3 bg-zinc-900/90 border-b border-zinc-800 flex flex-wrap items-center gap-2 text-xs">
+          <span class="text-zinc-500 font-mono text-[11px]">Click chips:</span>
+          <button type="button" onclick="window.runTerminalCommand('help')" class="term-chip px-2.5 py-1 rounded bg-zinc-800 hover:bg-zinc-700 text-orange-400 font-mono transition" data-cmd="help">help</button>
+          <button type="button" onclick="window.runTerminalCommand('skills')" class="term-chip px-2.5 py-1 rounded bg-zinc-800 hover:bg-zinc-700 text-orange-400 font-mono transition" data-cmd="skills">skills</button>
+          <button type="button" onclick="window.runTerminalCommand('projects')" class="term-chip px-2.5 py-1 rounded bg-zinc-800 hover:bg-zinc-700 text-orange-400 font-mono transition" data-cmd="projects">projects</button>
+          <button type="button" onclick="window.runTerminalCommand('experience')" class="term-chip px-2.5 py-1 rounded bg-zinc-800 hover:bg-zinc-700 text-orange-400 font-mono transition" data-cmd="experience">experience</button>
+          <button type="button" onclick="window.runTerminalCommand('certs')" class="term-chip px-2.5 py-1 rounded bg-zinc-800 hover:bg-zinc-700 text-orange-400 font-mono transition" data-cmd="certs">certs</button>
+          <button type="button" onclick="window.runTerminalCommand('contact')" class="term-chip px-2.5 py-1 rounded bg-zinc-800 hover:bg-zinc-700 text-orange-400 font-mono transition" data-cmd="contact">contact</button>
+          <button type="button" onclick="window.runTerminalCommand('sudo hire')" class="term-chip px-2.5 py-1 rounded bg-orange-600/30 hover:bg-orange-600/50 border border-orange-500 text-orange-400 font-mono font-bold transition" data-cmd="sudo hire">sudo hire ⚡</button>
+          <button type="button" onclick="window.runTerminalCommand('clear')" class="term-chip px-2.5 py-1 rounded bg-zinc-800 hover:bg-zinc-700 text-zinc-400 font-mono transition" data-cmd="clear">clear</button>
+        </div>
+
+        <div id="terminalOutput" class="terminal-body space-y-2">
+          <div class="text-zinc-400 text-xs leading-relaxed">
+            Welcome to <span class="text-orange-500 font-bold">Lakshmi Chandrakala's</span> developer console.<br />
+            Type <span class="text-orange-400 font-bold underline cursor-pointer" onclick="window.runTerminalCommand('help')">'help'</span> or click any chip above.
+          </div>
+        </div>
+
+        <form id="terminalForm" class="p-3 bg-zinc-950 border-t border-zinc-800 flex items-center gap-2">
+          <span class="terminal-prompt text-sm font-bold">visitor@lakshmi:~$</span>
+          <input type="text" id="terminalInput" class="terminal-input" placeholder="Type command here (or click Run)..." autocomplete="off" spellcheck="false" />
+          <button type="submit" class="btn-orange text-xs py-1.5 px-3">Run</button>
+        </form>
+
+      </div>
+
+    </section>
+
+    <!-- ==========================================================================
+         RECRUITER FAQ ACCORDION SECTION
+         ========================================================================== -->
+    <section id="faq" class="px-6 sm:px-10 lg:px-16 py-20 border-b border-zinc-800/60">
+      
+      <div class="text-center max-w-2xl mx-auto mb-12 space-y-3">
+        <span class="text-orange-500 font-bold text-xs uppercase tracking-widest font-mono">Fast-Track Hiring</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Recruiter FAQ</h2>
+        <p class="text-zinc-400 text-sm">
+          Quick answers to the top questions hiring managers ask.
+        </p>
+      </div>
+
+      <div class="max-w-3xl mx-auto space-y-4">
+        
+        <div class="faq-item active">
+          <button class="faq-btn">
+            <span>What is your current notice period & availability?</span>
+            <i data-lucide="chevron-down" class="faq-icon w-4 h-4 text-zinc-400 transition-transform"></i>
+          </button>
+          <div class="faq-content">
+            I am available to join <strong class="text-orange-500">immediately</strong> for full-time frontend and mobile application engineering roles. I can integrate smoothly into your team's existing Git workflows and sprint cycles.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-btn">
+            <span>Are you open to on-site, hybrid, or remote positions?</span>
+            <i data-lucide="chevron-down" class="faq-icon w-4 h-4 text-zinc-400 transition-transform"></i>
+          </button>
+          <div class="faq-content">
+            Yes! I am located in <strong class="text-white">Hyderabad, Telangana</strong> and open to Hyderabad on-site / hybrid roles as well as remote opportunities across India and globally.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-btn">
+            <span>How does your ServiceNow CSA certification complement frontend engineering?</span>
+            <i data-lucide="chevron-down" class="faq-icon w-4 h-4 text-zinc-400 transition-transform"></i>
+          </button>
+          <div class="faq-content">
+            My primary passion is building modern React & React Native user interfaces. The <strong class="text-orange-500">ServiceNow CSA</strong> certification brings valuable enterprise maturity: deep knowledge of enterprise data models, automated catalog workflows, ITIL standards, and business rules.
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ==========================================================================
+         CONTACT ME SECTION (MATCHING FIGMA "Contact me" NAV)
+         ========================================================================== -->
+    <section id="contact" class="px-6 sm:px-10 lg:px-16 py-20">
+      
+      <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
+        <span class="text-orange-500 font-bold text-xs uppercase tracking-widest font-mono">Get In Touch</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Together Let's Design Something Great</h2>
+        <p class="text-zinc-400 text-sm sm:text-base">
+          I am currently open to full-time frontend & mobile developer roles and technical collaborations.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+        
+        <!-- Left: Direct Info Cards (5 Cols) -->
+        <div class="lg:col-span-5 space-y-4">
+          
+          <div class="figma-card p-5 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+              <div class="w-11 h-11 rounded-xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center text-orange-500">
+                <i data-lucide="mail" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <span class="text-[11px] font-mono text-zinc-400 block">Direct Email</span>
+                <a href="mailto:gurralaammureddy@gmail.com" class="text-white hover:text-orange-500 font-bold text-sm transition">gurralaammureddy@gmail.com</a>
+              </div>
+            </div>
+            <button data-copy="gurralaammureddy@gmail.com" class="social-icon-btn w-9 h-9" title="Copy Email">
+              <i data-lucide="copy" class="w-4 h-4"></i>
+            </button>
+          </div>
+
+          <div class="figma-card p-5 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+              <div class="w-11 h-11 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400">
+                <i data-lucide="phone-call" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <span class="text-[11px] font-mono text-zinc-400 block">Phone & WhatsApp</span>
+                <a href="tel:+918919008619" class="text-white hover:text-emerald-400 font-bold text-sm transition">+91 8919008619</a>
+              </div>
+            </div>
+            <button data-copy="+918919008619" class="social-icon-btn w-9 h-9" title="Copy Phone Number">
+              <i data-lucide="copy" class="w-4 h-4"></i>
+            </button>
+          </div>
+
+          <div class="figma-card p-5 flex items-center gap-3">
+            <div class="w-11 h-11 rounded-xl bg-zinc-800 flex items-center justify-center text-orange-500">
+              <i data-lucide="map-pin" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <span class="text-[11px] font-mono text-zinc-400 block">Location</span>
+              <span class="text-white font-bold text-sm">Hyderabad, Telangana, India</span>
+            </div>
+          </div>
+
+          <div class="figma-card p-5 space-y-3">
+            <span class="text-xs font-mono text-zinc-400 block uppercase font-semibold">Online Profiles</span>
+            <div class="grid grid-cols-2 gap-2 text-xs">
+              <a href="https://linkedin.com/in/lakshmi-chandrakala-gurrala-710909255" target="_blank" rel="noopener noreferrer" class="p-2.5 rounded-xl bg-zinc-950 hover:bg-zinc-800 text-zinc-300 hover:text-orange-500 flex items-center gap-2 transition">
+                <i data-lucide="linkedin" class="w-4 h-4 text-sky-400"></i>
+                <span class="truncate">LinkedIn</span>
+              </a>
+              <a href="https://github.com/ammureddy743" target="_blank" rel="noopener noreferrer" class="p-2.5 rounded-xl bg-zinc-950 hover:bg-zinc-800 text-zinc-300 hover:text-white flex items-center gap-2 transition">
+                <i data-lucide="github" class="w-4 h-4"></i>
+                <span class="truncate">GitHub</span>
+              </a>
+              <a href="https://leetcode.com/u/X2UeLl2I3Y/" target="_blank" rel="noopener noreferrer" class="p-2.5 rounded-xl bg-zinc-950 hover:bg-zinc-800 text-zinc-300 hover:text-amber-400 flex items-center gap-2 transition">
+                <i data-lucide="code" class="w-4 h-4 text-amber-400"></i>
+                <span class="truncate">LeetCode</span>
+              </a>
+              <a href="https://hackerrank.com/profile/gurralaammureddy" target="_blank" rel="noopener noreferrer" class="p-2.5 rounded-xl bg-zinc-950 hover:bg-zinc-800 text-zinc-300 hover:text-emerald-400 flex items-center gap-2 transition">
+                <i data-lucide="award" class="w-4 h-4 text-emerald-400"></i>
+                <span class="truncate">HackerRank</span>
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right: Modern Inquiry Form (7 Cols) -->
+        <div class="lg:col-span-7">
+          <div class="figma-card p-6 sm:p-8 space-y-6">
+            <div>
+              <h3 class="text-2xl font-bold text-white">Send Me a Message</h3>
+              <p class="text-xs text-zinc-400 mt-1">Whether you have a role opportunity, project proposal, or just want to connect.</p>
+            </div>
+
+            <form id="contactForm" class="space-y-4">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div class="space-y-1.5">
+                  <label class="text-xs font-semibold text-zinc-300">Your Full Name <span class="text-orange-500">*</span></label>
+                  <input type="text" name="name" required placeholder="e.g. John Doe / Recruiter" class="w-full bg-zinc-950 border border-zinc-800 focus:border-orange-500 rounded-xl px-4 py-3 text-sm text-white placeholder-zinc-500 outline-none transition" />
+                </div>
+                <div class="space-y-1.5">
+                  <label class="text-xs font-semibold text-zinc-300">Your Email Address <span class="text-orange-500">*</span></label>
+                  <input type="email" name="email" required placeholder="e.g. name@company.com" class="w-full bg-zinc-950 border border-zinc-800 focus:border-orange-500 rounded-xl px-4 py-3 text-sm text-white placeholder-zinc-500 outline-none transition" />
+                </div>
+              </div>
+
+              <div class="space-y-1.5">
+                <label class="text-xs font-semibold text-zinc-300">Subject / Role</label>
+                <input type="text" name="subject" placeholder="e.g. Frontend Developer Role @ Company" class="w-full bg-zinc-950 border border-zinc-800 focus:border-orange-500 rounded-xl px-4 py-3 text-sm text-white placeholder-zinc-500 outline-none transition" />
+              </div>
+
+              <div class="space-y-1.5">
+                <label class="text-xs font-semibold text-zinc-300">Message / Opportunity Details <span class="text-orange-500">*</span></label>
+                <textarea name="message" rows="4" required placeholder="Share details about your team, role requirements, or project scope..." class="w-full bg-zinc-950 border border-zinc-800 focus:border-orange-500 rounded-xl px-4 py-3 text-sm text-white placeholder-zinc-500 outline-none transition resize-none"></textarea>
+              </div>
+
+              <div class="flex items-center justify-between pt-2">
+                <span class="text-[11px] text-zinc-500">Direct response within 24 hours</span>
+                <button type="submit" class="btn-orange">
+                  <span>Send Message</span>
+                  <i data-lucide="send" class="w-4 h-4"></i>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         FOOTER (MATCHING FIGMA TEMPLATE)
+         ========================================================================== -->
+    <footer class="px-6 sm:px-10 lg:px-16 py-12 border-t border-zinc-800 bg-zinc-950 text-zinc-400 text-xs">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+        
+        <div class="flex items-center gap-3">
+          <span class="text-xl font-black text-white">LAKSHMI<span class="text-orange-500">.</span></span>
+          <span class="text-zinc-500">|</span>
+          <span class="text-zinc-400">Frontend & Mobile Developer</span>
+        </div>
+
+        <div class="flex items-center gap-6 text-zinc-400">
+          <a href="#home" class="hover:text-orange-500 transition">Home</a>
+          <a href="#services" class="hover:text-orange-500 transition">Services</a>
+          <a href="#about" class="hover:text-orange-500 transition">About me</a>
+          <a href="#portfolio" class="hover:text-orange-500 transition">Portfolio</a>
+          <a href="#contact" class="hover:text-orange-500 transition">Contact me</a>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <span class="text-zinc-500">© 2026 Lakshmi Chandrakala Reddy.</span>
+          <a href="#home" class="social-icon-btn w-8 h-8" title="Back to Top">
+            <i data-lucide="arrow-up" class="w-4 h-4"></i>
+          </a>
+        </div>
+
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- ==========================================================================
+       MODALS: PROJECT DEEP DIVE & RESUME PREVIEW
+       ========================================================================== -->
+  <div id="projectModal" class="modal-overlay">
+    <div class="modal-container">
+      <div id="modalContent"></div>
+    </div>
+  </div>
+
+  <div id="resumeModal" class="modal-overlay">
+    <div class="modal-container max-w-4xl h-[90vh] flex flex-col">
+      <div class="p-4 border-b border-zinc-800 flex items-center justify-between bg-zinc-900 rounded-t-2xl">
+        <div class="flex items-center gap-2">
+          <i data-lucide="file-text" class="w-5 h-5 text-orange-500"></i>
+          <div>
+            <h3 class="font-bold text-white text-sm">Lakshmi Chandrakala - Official Resume</h3>
+            <span class="text-[11px] text-zinc-400 font-mono">Frontend Developer • React.js • React Native • ServiceNow CSA</span>
+          </div>
+        </div>
+        <div class="flex items-center gap-2">
+          <a href="assets/Lakshmi_Chandrakala_Resume.pdf" download class="btn-orange text-xs py-1.5 px-3">
+            <i data-lucide="download" class="w-3.5 h-3.5"></i>
+            <span>Download PDF</span>
+          </a>
+          <button id="closeResumeBtn" class="p-2 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-zinc-400 hover:text-white transition">
+            ✕
+          </button>
+        </div>
+      </div>
+      
+      <div class="flex-1 w-full bg-zinc-950 p-2 overflow-hidden">
+        <iframe src="assets/Lakshmi_Chandrakala_Resume.pdf" class="w-full h-full rounded border border-zinc-800"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Container -->
+  <div id="toastContainer"></div>
+
+  <!-- Scripts -->
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/terminal.js"></script>
+  <script>
+    if (window.lucide) lucide.createIcons();
+  </script>
+</body>
+</html>

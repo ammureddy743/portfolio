@@ -1,11 +1,15 @@
 {
   "name": "lakshmi-chandrakala-portfolio",
   "version": "1.0.0",
+  "type": "module",
   "description": "Unique & Professional Portfolio for Gurrala Lakshmi Chandrakala Reddy - Frontend Developer & Mobile Engineer",
   "main": "index.html",
   "scripts": {
-    "start": "node serve.js",
-    "dev": "node serve.js"
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "start": "vite",
+    "serve": "node serve.js"
   },
   "keywords": [
     "portfolio",
@@ -16,5 +20,22 @@
     "tailwind"
   ],
   "author": "Gurrala Lakshmi Chandrakala Reddy",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.3.5",
+    "@tailwindcss/vite": "^4.3.5",
+    "@types/canvas-confetti": "^1.9.0",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.3.0",
+    "autoprefixer": "^10.6.2",
+    "canvas-confetti": "^1.9.4",
+    "lucide-react": "^1.72.0",
+    "postcss": "^8.5.32",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "tailwindcss": "^4.3.5",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.8"
+  }
 }

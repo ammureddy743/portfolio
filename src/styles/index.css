@@ -1,0 +1,352 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap');
+@import "tailwindcss";
+
+:root {
+  --bg-body: #0d0d0e;
+  --bg-frame: #141416;
+  --bg-card: #1c1c1f;
+  --bg-card-hover: #242429;
+  --bg-circle: #222226;
+  
+  --border-color: #27272c;
+  --border-color-hover: #ff6b00;
+  
+  --text-primary: #ffffff;
+  --text-secondary: #a1a1aa;
+  --text-muted: #71717a;
+  
+  --accent-orange: #ff6b00;
+  --accent-orange-hover: #ff5500;
+  --accent-orange-light: rgba(255, 107, 0, 0.12);
+  --accent-orange-glow: rgba(255, 107, 0, 0.35);
+
+  --terminal-bg: #111114;
+  --terminal-header: #19191d;
+}
+
+[data-theme="light"],
+html.light {
+  --bg-body: #f4f4f6;
+  --bg-frame: #ffffff;
+  --bg-card: #fcfcfd;
+  --bg-card-hover: #ffffff;
+  --bg-circle: #ebebed;
+  
+  --border-color: #e4e4e7;
+  --border-color-hover: #ff6b00;
+  
+  --text-primary: #18181b;
+  --text-secondary: #52525b;
+  --text-muted: #71717a;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--bg-body);
+  color: var(--text-primary);
+}
+
+body {
+  background-color: var(--bg-body);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+/* Background Physics Canvas & Ambient Orbs */
+#heroCanvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: auto;
+  z-index: 1;
+}
+
+.bg-mesh-container {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.bg-mesh {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(100px);
+  opacity: 0.18;
+  animation: floatOrb 22s ease-in-out infinite alternate;
+}
+
+.bg-mesh-orange {
+  width: 550px;
+  height: 550px;
+  background: radial-gradient(circle, #ff6b00 0%, rgba(255, 107, 0, 0) 70%);
+  top: -100px;
+  right: -50px;
+}
+
+.bg-mesh-amber {
+  width: 480px;
+  height: 480px;
+  background: radial-gradient(circle, #f59e0b 0%, rgba(245, 158, 11, 0) 70%);
+  bottom: 10%;
+  left: -80px;
+  animation-duration: 26s;
+}
+
+@keyframes floatOrb {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(40px, -40px) scale(1.08); }
+  100% { transform: translate(-30px, 30px) scale(0.95); }
+}
+
+/* Card Styling (Figma Inspired) */
+.figma-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 1.5rem;
+  padding: 1.75rem;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.figma-card:hover {
+  background: var(--bg-card-hover);
+  border-color: rgba(255, 107, 0, 0.4);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  transform: translateY(-2px);
+}
+
+/* Buttons */
+.btn-orange {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: var(--accent-orange);
+  color: #ffffff !important;
+  font-weight: 700;
+  border-radius: 9999px;
+  padding: 0.75rem 1.75rem;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 20px var(--accent-orange-glow);
+}
+
+.btn-orange:hover {
+  background: var(--accent-orange-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 25px rgba(255, 107, 0, 0.5);
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  font-weight: 600;
+  border-radius: 9999px;
+  padding: 0.75rem 1.75rem;
+  transition: all 0.2s ease;
+}
+
+.btn-outline:hover {
+  border-color: var(--accent-orange);
+  color: var(--accent-orange);
+  background: var(--accent-orange-light);
+}
+
+/* Skill Progress Bars */
+.skill-bar-container {
+  width: 100%;
+  height: 9px;
+  background: #27272a;
+  border: 1px solid #3f3f46;
+  border-radius: 9999px;
+  overflow: hidden;
+  margin-top: 0.5rem;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+.skill-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #ff6b00, #ff8533);
+  border-radius: 9999px;
+  box-shadow: 0 0 10px rgba(255, 107, 0, 0.4);
+  transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Info Box & Info Pills */
+.info-card-box {
+  background: #141416;
+  border: 1px solid #27272a;
+  border-radius: 0.875rem;
+  padding: 1rem;
+  transition: all 0.25s ease;
+}
+.info-label {
+  color: #71717a;
+  font-weight: 500;
+}
+.info-val {
+  color: #f4f4f5;
+  font-weight: 500;
+}
+.info-val-accent {
+  color: var(--accent-orange);
+}
+
+.info-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.35rem 0.85rem;
+  border-radius: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  background: #27272a;
+  border: 1px solid #3f3f46;
+  color: #d4d4d8;
+  transition: all 0.2s ease;
+}
+
+.info-badge-orange {
+  background: rgba(255, 107, 0, 0.12);
+  border-color: rgba(255, 107, 0, 0.35);
+  color: #ff8533;
+}
+
+/* Terminal Console (Developer Theme Guaranteed in All Modes) */
+.terminal-window,
+[data-theme="light"] .terminal-window {
+  background: #0d0d10 !important;
+  border: 1px solid #27272a !important;
+  border-radius: 1.25rem;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6) !important;
+  font-family: 'JetBrains Mono', monospace;
+  color: #f4f4f5 !important;
+}
+
+.terminal-header,
+[data-theme="light"] .terminal-header {
+  background: #151518 !important;
+  padding: 0.85rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #27272a !important;
+  color: #a1a1aa !important;
+}
+
+.term-chip,
+[data-theme="light"] .term-chip {
+  background: #1c1c20 !important;
+  color: #ff8533 !important;
+  border: 1px solid #2e2e33 !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease;
+}
+
+.term-chip:hover,
+[data-theme="light"] .term-chip:hover {
+  background: #27272c !important;
+  color: #ffa05c !important;
+  border-color: #ff6b00 !important;
+}
+
+.terminal-body,
+[data-theme="light"] .terminal-body {
+  padding: 1.25rem;
+  font-size: 0.875rem;
+  min-height: 260px;
+  max-height: 380px;
+  overflow-y: auto;
+  background: #0d0d10 !important;
+  color: #e4e4e7 !important;
+}
+
+.terminal-input,
+[data-theme="light"] .terminal-input,
+[data-theme="light"] input.terminal-input {
+  background: transparent !important;
+  background-color: transparent !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  color: #ffffff !important;
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 0.875rem !important;
+  flex: 1;
+}
+
+/* Bright / Light Mode Theme Overrides */
+[data-theme="light"] {
+  color: #18181b;
+}
+
+[data-theme="light"] h1,
+[data-theme="light"] h2,
+[data-theme="light"] h3,
+[data-theme="light"] h4 {
+  color: #18181b !important;
+}
+
+[data-theme="light"] .figma-card {
+  background: #ffffff !important;
+  border-color: #e4e4e7 !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04) !important;
+}
+
+[data-theme="light"] .info-card-box {
+  background: #f4f4f6 !important;
+  border: 1px solid #e4e4e7 !important;
+}
+[data-theme="light"] .info-label {
+  color: #52525b !important;
+}
+[data-theme="light"] .info-val {
+  color: #18181b !important;
+}
+
+[data-theme="light"] .info-badge {
+  background: #f4f4f6 !important;
+  border-color: #d4d4d8 !important;
+  color: #27272a !important;
+}
+
+[data-theme="light"] .info-badge-orange {
+  background: rgba(255, 107, 0, 0.12) !important;
+  border-color: rgba(255, 107, 0, 0.4) !important;
+  color: #ea580c !important;
+}
+
+[data-theme="light"] .skill-bar-container {
+  background: #e4e4e7 !important;
+  border: 1px solid #d4d4d8 !important;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.08) !important;
+}
+
+[data-theme="light"] .task-item {
+  background: #f4f4f6 !important;
+  border-color: #e4e4e7 !important;
+}
+
+[data-theme="light"] .task-item .task-text {
+  color: #18181b !important;
+}
+
+[data-theme="light"] .task-item.completed .task-text {
+  color: #a1a1aa !important;
+  text-decoration: line-through;
+}
+
+[data-theme="light"] footer {
+  background-color: #f4f4f6 !important;
+  border-color: #e4e4e7 !important;
+  color: #52525b !important;
+}

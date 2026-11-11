@@ -27,18 +27,34 @@ A high-performance, responsive developer portfolio engineered for **Gurrala Laks
 
 ---
 
+## 🛠️ Modern Tech Stack
+- **Framework**: React 18 / 19 (TypeScript `.tsx` Component Architecture)
+- **Styling**: Tailwind CSS v4 + Custom Figma Matte Theme Variables
+- **Build Engine**: Vite (Instant Hot-Module Replacement & Ultra-Fast Bundling)
+- **Icons**: Lucide React Icons + Custom Inline Brand SVGs
+- **Type Safety**: 100% Strict TypeScript
+- **Deployment**: Automated GitHub Actions Workflow to GitHub Pages
+
+---
+
 ## 🚀 How to Run Locally
 
-### Option 1: Direct View (Zero Setup)
-Simply double-click `index.html` in Windows Explorer to open in any web browser.
-
-### Option 2: Local Node Server
+### Start Vite Development Server
 ```powershell
-node serve.js
-# or
-npm.cmd start
+npm.cmd run dev
 ```
-Then visit: `http://localhost:3000`
+Then visit: `http://localhost:3000` (or the port Vite outputs with instant HMR)
+
+### Production Build
+```powershell
+npm.cmd run build
+```
+Compiles TypeScript types and bundles optimized assets into `dist/`.
+
+### Preview Production Build
+```powershell
+npm.cmd run preview
+```
 
 ---
 
