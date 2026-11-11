@@ -1,5 +1,15 @@
 [
   {
+    "id": "inq_1794410345412_5t6g0",
+    "name": "ammu",
+    "email": "lakshmichandrakalagurrala@gmail.com",
+    "subject": "web developer",
+    "message": "i want a website",
+    "receivedAt": "2026-11-11T15:19:05.413Z",
+    "clientIp": "::1",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36 Edg/157.0.0.0"
+  },
+  {
     "id": "inq_1794409855517_cj3kn",
     "name": "ammu",
     "email": "lakshmichandrakalagurrala@gmail.com",
