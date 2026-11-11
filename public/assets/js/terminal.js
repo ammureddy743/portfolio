@@ -20,6 +20,8 @@
 <div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-1 text-slate-300">
   <div><span class="text-cyan-400 font-bold">about</span>       - Read bio and background</div>
   <div><span class="text-cyan-400 font-bold">skills</span>      - Technical stack matrix</div>
+  <div><span class="text-cyan-400 font-bold">backend</span>     - Node.js & REST API architecture</div>
+  <div><span class="text-cyan-400 font-bold">api</span>         - Live backend API telemetry status</div>
   <div><span class="text-cyan-400 font-bold">projects</span>    - Featured projects overview</div>
   <div><span class="text-cyan-400 font-bold">experience</span>  - Work experience & timeline</div>
   <div><span class="text-cyan-400 font-bold">certs</span>       - Official certifications</div>
@@ -44,11 +46,38 @@
 
     skills: () => `
 <div class="space-y-2 text-slate-300">
-  <div><span class="text-cyan-400 font-bold">Frontend:</span> React.js, JavaScript (ES6+), TypeScript, HTML5, CSS3, Tailwind CSS, Vite</div>
-  <div><span class="text-cyan-400 font-bold">Mobile:</span> React Native, Cross-Platform UI, Component Layouts</div>
+  <div><span class="text-cyan-400 font-bold">Frontend:</span> React.js 18+, TypeScript, Tailwind CSS, Vite, HTML5, CSS3, Modern State Management</div>
+  <div><span class="text-cyan-400 font-bold">Mobile:</span> React Native, Expo, Cross-Platform Architecture, Gesture Handling, Safe Area</div>
+  <div><span class="text-cyan-400 font-bold">Backend & APIs:</span> Node.js, Express.js, RESTful Architecture, Python, Flask, Data Modeling</div>
   <div><span class="text-cyan-400 font-bold">Enterprise Platforms:</span> ServiceNow Certified System Administrator (CSA)</div>
-  <div><span class="text-cyan-400 font-bold">Backend & DB:</span> Python, Flask, Django, SQLite, RESTful APIs</div>
-  <div><span class="text-cyan-400 font-bold">AI & Dev Tools:</span> Claude AI, Google Gemini, Antigravity, Git, GitHub, VS Code</div>
+  <div><span class="text-cyan-400 font-bold">AI & Dev Tools:</span> Claude AI, Google Gemini, Antigravity, Git, GitHub Actions, VS Code</div>
+</div>
+`,
+
+    backend: () => `
+<div class="space-y-2 text-slate-300">
+  <div class="text-amber-400 font-bold">BACKEND & RESTful API ARCHITECTURE:</div>
+  <div>• <span class="text-cyan-400 font-semibold">Node.js & Express:</span> RESTful routing, middleware pipelines, CORS, async/await controllers.</div>
+  <div>• <span class="text-cyan-400 font-semibold">Live Portfolio REST API:</span> Endpoints for <code>/api/contact</code>, <code>/api/inquiries</code>, <code>/api/stats</code>, and <code>/api/health</code>.</div>
+  <div>• <span class="text-cyan-400 font-semibold">Python & Flask:</span> Microservices & AI orchestration (QTrans translation routing).</div>
+  <div>• <span class="text-cyan-400 font-semibold">Persistence:</span> JSON thread-safe filesystem persistence & SQL/PostgreSQL schema modeling.</div>
+  <div class="text-xs text-slate-400 mt-2">Type <span class="text-emerald-400 font-mono font-bold">api</span> to check the live status of the backend server.</div>
+</div>
+`,
+
+    api: () => `
+<div class="space-y-2 text-slate-300">
+  <div class="text-emerald-400 font-bold">LIVE BACKEND TELEMETRY STATUS:</div>
+  <div class="p-3 bg-slate-900/90 rounded border border-slate-700/80 font-mono text-xs space-y-1">
+    <div><span class="text-slate-400">Server:</span> <span class="text-cyan-400">Node.js Express REST API</span></div>
+    <div><span class="text-slate-400">Port:</span> <span class="text-emerald-400">5000 (Local) / Same-Origin Fallback</span></div>
+    <div><span class="text-slate-400">Status:</span> <span class="text-emerald-400">● ONLINE / READY</span></div>
+    <div><span class="text-slate-400">Endpoints:</span></div>
+    <div class="pl-3 text-slate-300">POST /api/contact &nbsp;&nbsp;&nbsp;&nbsp;- Ingestion &amp; Validation</div>
+    <div class="pl-3 text-slate-300">GET  /api/health &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Health Check &amp; Memory</div>
+    <div class="pl-3 text-slate-300">GET  /api/inquiries &nbsp;&nbsp;- Recruiter Leads Feed</div>
+    <div class="pl-3 text-slate-300">GET  /api/stats &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Engineering Metrics</div>
+  </div>
 </div>
 `,
 

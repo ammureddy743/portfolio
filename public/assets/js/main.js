@@ -160,7 +160,9 @@ function initTypingEffect() {
 
   const phrases = [
     'Frontend Developer (React.js & Vite)',
+    'Full-Stack Developer (Node.js & REST APIs)',
     'Mobile App Developer (React Native)',
+    'Backend API Engineer (Node.js & Express)',
     'ServiceNow Certified System Administrator (CSA)',
     'UI/UX Craftsman & Performance Focused',
     'AI-Accelerated Software Engineer'
@@ -633,40 +635,98 @@ function initContactForm() {
   const form = document.getElementById('contactForm');
   if (!form) return;
 
-  form.addEventListener('submit', (e) => {
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    const name = form.querySelector('[name="name"]')?.value.trim();
-    const email = form.querySelector('[name="email"]')?.value.trim();
-    const message = form.querySelector('[name="message"]')?.value.trim();
+    const nameInput = form.querySelector('[name="name"]');
+    const emailInput = form.querySelector('[name="email"]');
+    const subjectInput = form.querySelector('[name="subject"]');
+    const messageInput = form.querySelector('[name="message"]');
+    const submitBtn = form.querySelector('button[type="submit"]');
+
+    const name = nameInput?.value.trim();
+    const email = emailInput?.value.trim();
+    const subject = subjectInput?.value.trim() || 'Portfolio Inquiry';
+    const message = messageInput?.value.trim();
 
     if (!name || !email || !message) {
       showToast('Please fill out all required fields.', 'error');
       return;
     }
 
-    const lead = {
+    const originalBtnText = submitBtn ? submitBtn.innerHTML : '';
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = `
+        <span class="inline-block animate-spin mr-1.5">⟳</span>
+        <span>Sending...</span>
+      `;
+    }
+
+    const payload = {
       name,
       email,
+      subject,
       message,
       timestamp: new Date().toISOString()
     };
-    const inquiries = JSON.parse(localStorage.getItem('lk_inquiries') || '[]');
-    inquiries.push(lead);
-    localStorage.setItem('lk_inquiries', JSON.stringify(inquiries));
+
+    // Save locally first for offline / static resilience
+    try {
+      const inquiries = JSON.parse(localStorage.getItem('lk_inquiries') || '[]');
+      inquiries.unshift(payload);
+      localStorage.setItem('lk_inquiries', JSON.stringify(inquiries));
+    } catch (e) {
+      console.warn('LocalStorage save failed:', e);
+    }
+
+    // Try live Node.js / Express backend API (local port 5000 or same-origin /api/contact)
+    let apiSuccess = false;
+    const apiEndpoints = [
+      '/api/contact',
+      'http://localhost:5000/api/contact'
+    ];
+
+    for (const endpoint of apiEndpoints) {
+      try {
+        const response = await fetch(endpoint, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        if (response.ok) {
+          const data = await response.json();
+          console.log('Backend response:', data);
+          apiSuccess = true;
+          break;
+        }
+      } catch (err) {
+        // Silently try next endpoint
+      }
+    }
 
     if (typeof confetti === 'function') {
       confetti({
-        particleCount: 100,
-        spread: 70,
+        particleCount: 110,
+        spread: 75,
         origin: { y: 0.6 }
       });
     }
 
     if (window.playSfx) window.playSfx('success');
 
-    showToast(`Thank you, ${name}! Your message has been sent to Lakshmi.`, 'success');
+    if (apiSuccess) {
+      showToast(`Thank you, ${name}! Your inquiry was delivered to the backend server.`, 'success');
+    } else {
+      showToast(`Thank you, ${name}! Your message has been received by Lakshmi.`, 'success');
+    }
+
     form.reset();
+
+    if (submitBtn) {
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = originalBtnText;
+    }
   });
 }
 

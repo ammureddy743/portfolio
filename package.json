@@ -9,7 +9,10 @@
     "build": "tsc && vite build",
     "preview": "vite preview",
     "start": "vite",
-    "serve": "node serve.js"
+    "serve": "node server.js",
+    "backend": "node server.js",
+    "server": "node server.js",
+    "dev:all": "node server.js"
   },
   "keywords": [
     "portfolio",
@@ -37,5 +40,9 @@
     "tailwindcss": "^4.3.5",
     "typescript": "^7.0.2",
     "vite": "^8.3.8"
+  },
+  "dependencies": {
+    "cors": "^2.8.6",
+    "express": "^5.3.0"
   }
 }
